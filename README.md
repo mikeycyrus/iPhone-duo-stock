@@ -44,9 +44,9 @@ Tapping an alert opens Apple’s buy page for that model, or the stock page if s
 
 ## How often it checks
 
-GitHub starts a run every 5 minutes. That is as often as GitHub’s free scheduler allows. Each run then checks once a minute, about five times, and publishes the page after every check. A phone alert is sent as soon as something comes into stock, without waiting for the run to finish.
+Each run checks once a minute, about five times, then starts the next run by itself. GitHub’s every-5-minutes timer is only a backup, in case that chain stops. A phone alert is sent as soon as something comes into stock, without waiting for the run to finish.
 
-If a run is still going when the next five minutes come around, the new one waits. They never check Apple at the same time.
+If a run is still going when the next one is ready, the new one waits. They never check Apple at the same time.
 
 To run one immediately:
 

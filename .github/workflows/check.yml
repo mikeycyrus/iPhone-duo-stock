@@ -1,6 +1,7 @@
-# GitHub's shortest schedule is 5 minutes. Each run checks once a minute for
-# about 5 minutes, publishes the page after every check, and sends a phone
-# alert as soon as stock appears. A new run waits instead of overlapping.
+# Each run checks once a minute for about 5 minutes, publishes the page after
+# every check, and sends a phone alert as soon as stock appears. At the end it
+# starts the next run itself. The 5-minute schedule is only a backup. A new run
+# waits instead of overlapping.
 
 name: Check pickup stock
 
@@ -122,3 +123,22 @@ jobs:
       - name: Publish the latest webpage
         id: deploy
         uses: actions/deploy-pages@v4
+
+  # GITHUB_TOKEN cannot start a run with a normal push, but it can with
+  # workflow_dispatch. That keeps the checks going when GitHub's scheduler does not.
+  queue-next:
+    needs: [check, deploy]
+    if: ${{ always() && github.ref == 'refs/heads/main' && !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start the next check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'check.yml',
+              ref: 'main'
+            })
+            core.info('Requested the next stock check on main.')
