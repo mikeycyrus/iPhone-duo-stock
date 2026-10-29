@@ -1,0 +1,124 @@
+# GitHub's shortest schedule is 5 minutes. Each run checks once a minute for
+# about 5 minutes, publishes the page after every check, and sends a phone
+# alert as soon as stock appears. A new run waits instead of overlapping.
+
+name: Check pickup stock
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: iphone-duo-stock
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+    env:
+      NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+      GIT_BASELINE_FILE: /tmp/availability.git.json
+      GIT_HISTORY_FILE: /tmp/history.git.json
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Keep the committed baseline aside
+        run: |
+          mkdir -p /tmp
+          if [ -f state/availability.json ]; then
+            cp state/availability.json /tmp/availability.git.json
+          fi
+          if [ -f state/history.json ]; then
+            cp state/history.json /tmp/history.git.json
+          fi
+
+      - name: Restore the latest saved baseline
+        continue-on-error: true
+        uses: actions/cache/restore@v4
+        with:
+          path: state
+          key: stock-baseline-${{ github.run_id }}
+          restore-keys: |
+            stock-baseline-
+
+      - name: Run offline tests
+        run: python3 -m unittest -v test_check.py
+
+      - name: Minute 1
+        uses: ./.github/actions/round
+        with:
+          artifact: github-pages-1
+          pause: "true"
+
+      - name: Minute 2
+        uses: ./.github/actions/round
+        with:
+          artifact: github-pages-2
+          pause: "true"
+
+      - name: Minute 3
+        uses: ./.github/actions/round
+        with:
+          artifact: github-pages-3
+          pause: "true"
+
+      - name: Minute 4
+        uses: ./.github/actions/round
+        with:
+          artifact: github-pages-4
+          pause: "true"
+
+      - name: Minute 5
+        uses: ./.github/actions/round
+        with:
+          artifact: github-pages
+          pause: "false"
+
+      - name: Save this run in the project history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/availability.json state/history.json docs/data.json
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit."
+          else
+            git commit -m "Update pickup stock snapshot"
+            if ! git push; then
+              echo "::warning title=Could not save stock history::The checks ran and the page can still update. Saving the result into the project history failed. In the repo, open Settings, then Actions, then General, then Workflow permissions, and choose Read and write permissions."
+            fi
+          fi
+
+      - name: Save the notification baseline
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v4
+        with:
+          path: state
+          key: stock-baseline-${{ github.run_id }}
+
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Publish the latest webpage
+        id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3efe6">
+  <title>iPhone Duo pickup — Melbourne</title>
+  <meta name="description" content="Pickup stock for iPhone Duo at five Melbourne Apple Stores: Highpoint, Chadstone, Doncaster, Southland, and Fountain Gate.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f6b3a'/%3E%3Cpath d='M8 16.5h16M16 8.5v16' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f3efe6;
+      --card: #fffdf9;
+      --ink: #1e1b16;
+      --muted: #655f56;
+      --line: #e4dccf;
+      --good: #0d5c2e;
+      --good-bg: #e3f6e9;
+      --good-line: #b7e4c6;
+      --warn: #7a4e00;
+      --warn-bg: #fff1cc;
+      --warn-line: #f0d48a;
+      --quiet-bg: #f7f3eb;
+      --late: #8a3d12;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161410;
+        --card: #221f1b;
+        --ink: #f6f1e8;
+        --muted: #c4baad;
+        --line: #3a342c;
+        --good: #b7ebc8;
+        --good-bg: #173524;
+        --good-line: #2e6b45;
+        --warn: #ffd78a;
+        --warn-bg: #3a2c12;
+        --warn-line: #6d5420;
+        --quiet-bg: #2a261f;
+        --late: #ffb088;
+        color-scheme: dark;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    a { color: inherit; }
+    header, main, footer { width: min(960px, calc(100% - 28px)); margin: 0 auto; }
+    header { padding: 22px 0 8px; }
+    h1 { font-size: clamp(1.7rem, 5vw, 2.15rem); line-height: 1.1; margin: 0 0 6px; letter-spacing: -0.03em; }
+    .sub { margin: 0; color: var(--muted); }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 14px 0; }
+    button, .buy {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      min-height: 44px;
+      padding: 0 16px;
+      font: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+    button { cursor: pointer; }
+    .buy { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 650; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--good); outline-offset: 2px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      margin: 12px 0;
+    }
+    .callout { border-radius: 14px; padding: 12px 14px; margin: 0 0 12px; }
+    .callout.good { background: var(--good-bg); border: 1px solid var(--good-line); }
+    .callout.warn { background: var(--warn-bg); border: 1px solid var(--warn-line); color: var(--warn); }
+    .callout.quiet { background: var(--quiet-bg); color: var(--muted); }
+    .callout p, .callout ul { margin: 0; }
+    .callout ul { padding-left: 18px; margin-top: 8px; }
+    .callout li { margin: 4px 0; }
+    .callout a { font-weight: 650; }
+    .when { margin: 0 0 12px; }
+    .when strong { font-variant-numeric: tabular-nums; }
+    .when.late { color: var(--late); }
+    .scroller { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -6px; padding: 0 6px 4px; }
+    table { border-collapse: separate; border-spacing: 0; width: max-content; min-width: 100%; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: center; vertical-align: middle; }
+    th { font-size: 0.82rem; font-weight: 650; color: var(--muted); }
+    th.model, td.model {
+      text-align: left;
+      position: sticky;
+      left: 0;
+      background: var(--card);
+      z-index: 1;
+      min-width: 7.2rem;
+      box-shadow: 8px 0 10px -10px rgba(0, 0, 0, 0.45);
+    }
+    th.store { max-width: 6.2rem; white-space: normal; }
+    th.store a { text-decoration: none; }
+    tr.group th {
+      text-align: left;
+      background: var(--quiet-bg);
+      color: var(--ink);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: sticky;
+      left: 0;
+    }
+    td.model .color { display: block; font-weight: 650; }
+    td.model .part { display: block; color: var(--muted); font-size: 0.75rem; font-weight: 500; }
+    td.in { background: var(--good-bg); }
+    td.in a { color: var(--good); font-weight: 750; text-decoration: none; display: inline-block; padding: 6px 2px; }
+    td.out { color: var(--muted); }
+    td.unknown { color: var(--late); }
+    td.stale { opacity: 0.72; }
+    .quote, .seen { display: block; margin-top: 2px; font-size: 0.68rem; line-height: 1.25; font-weight: 550; }
+    .quote { color: var(--good); }
+    .seen { color: var(--muted); }
+    h2 { font-size: 1rem; margin: 0; }
+    .history { list-style: none; padding: 0; margin: 8px 0 0; }
+    .history li { display: block; padding: 10px 0; border-top: 1px solid var(--line); }
+    .history .change { display: block; margin-top: 2px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .history .in { color: var(--good); font-weight: 700; }
+    .legend, footer { color: var(--muted); font-size: 0.92rem; }
+    footer { padding: 8px 0 36px; }
+    footer a { color: var(--ink); }
+    .loading { color: var(--muted); }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>iPhone Duo pickup</h1>
+    <p class="sub">Five Melbourne Apple Stores.</p>
+    <div class="toolbar">
+      <a class="buy" id="buy" href="https://www.apple.com/au/shop/buy-iphone/iphone-duo">Buy on Apple</a>
+      <button type="button" id="refresh">Refresh</button>
+    </div>
+  </header>
+  <main id="app">
+    <p class="loading">Loading the latest check…</p>
+  </main>
+  <footer>
+    <p>Highpoint, Chadstone, Doncaster, Southland, and Fountain Gate. Stock is checked about once a minute. This page looks for a new result every minute. Times are Melbourne time.</p>
+    <p><a href="https://github.com/mikeycyrus/iphone-duo-stock#phone-alerts">How phone alerts work</a></p>
+  </footer>
+  <script>
+    const app = document.getElementById("app");
+    const refreshButton = document.getElementById("refresh");
+    let latest = null;
+    let timer = null;
+
+    function el(tag, attrs, children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs || {}).forEach(([key, value]) => {
+        if (key === "class") node.className = value;
+        else if (key === "text") node.textContent = value;
+        else node.setAttribute(key, value);
+      });
+      (children || []).forEach((child) => node.append(child));
+      return node;
+    }
+
+    function ago(iso) {
+      const then = new Date(iso).getTime();
+      if (Number.isNaN(then)) return "";
+      const seconds = Math.round((Date.now() - then) / 1000);
+      if (seconds < 45) return "just now";
+      const minutes = Math.round(seconds / 60);
+      if (minutes < 60) return minutes === 1 ? "1 minute ago" : minutes + " minutes ago";
+      const hours = Math.round(minutes / 60);
+      if (hours < 36) return hours === 1 ? "1 hour ago" : hours + " hours ago";
+      const days = Math.round(hours / 24);
+      return days === 1 ? "1 day ago" : days + " days ago";
+    }
+
+    function ageSeconds(iso) {
+      const then = new Date(iso).getTime();
+      if (Number.isNaN(then)) return 0;
+      return (Date.now() - then) / 1000;
+    }
+
+    function inStock(status) {
+      const value = (status || "").toLowerCase();
+      return value.startsWith("available") && !value.startsWith("unavailable");
+    }
+
+    function statusLabel(cell) {
+      if (inStock(cell.status)) return "In stock";
+      if ((cell.status || "").toLowerCase() === "unknown") return "No reading";
+      return "No";
+    }
+
+    function render(data, note) {
+      latest = data;
+      app.replaceChildren();
+      const count = data.in_stock_count || 0;
+      document.title = count ? "iPhone Duo — " + count + " in stock" : "iPhone Duo pickup — Melbourne";
+      if (data.buy_url) document.getElementById("buy").href = data.buy_url;
+
+      const when = el("p", { class: "when", id: "when" });
+      const problem = data.problem;
+      if (problem && problem.stale) {
+        when.append(el("strong", { text: "Last attempt " + (data.checked_at_display || "") }));
+        when.append(document.createTextNode(" (" + ago(data.checked_at) + "). The grid is an older reading."));
+      } else {
+        when.append(document.createTextNode("Last checked "));
+        when.append(el("strong", { text: data.checked_at_display || "" }));
+        when.append(document.createTextNode(" (" + ago(data.checked_at) + ")."));
+      }
+      if (ageSeconds(problem && problem.stale ? data.last_success : data.checked_at) > 5 * 60) {
+        when.classList.add("late");
+      }
+      app.append(when);
+
+      if (note) app.append(el("div", { class: "callout warn", role: "status" }, [el("p", { text: note })]));
+      if (problem) app.append(el("div", { class: "callout warn", role: "alert" }, [el("p", { text: problem.text })]));
+
+      const shownStock = data.in_stock || [];
+      if (shownStock.length) {
+        const list = el("ul");
+        shownStock.forEach((item) => {
+          const link = el("a", { href: item.buy_url, text: item.capacity + " " + item.color + " at " + item.store });
+          const line = el("li", {}, [link]);
+          if (item.stale) line.append(document.createTextNode(" (older reading)"));
+          list.append(line);
+        });
+        app.append(el("div", { class: "callout good" }, [el("p", { text: "In stock now" }), list]));
+      } else if (!problem) {
+        app.append(el("div", { class: "callout quiet" }, [el("p", { text: "Nothing in stock at these five stores right now." })]));
+      }
+
+      const table = el("table");
+      table.append(el("caption", { class: "visually-hidden", text: "iPhone Duo pickup by model and store" }));
+      const head = el("tr", {}, [el("th", { class: "model", scope: "col", text: "Model" })]);
+      (data.stores || []).forEach((store) => {
+        head.append(el("th", { class: "store", scope: "col" }, [el("a", { href: store.url, text: store.name })]));
+      });
+      table.append(el("thead", {}, [head]));
+      const body = el("tbody");
+      let capacity = "";
+      (data.models || []).forEach((model) => {
+        if (model.capacity !== capacity) {
+          capacity = model.capacity;
+          body.append(el("tr", { class: "group" }, [el("th", { colspan: String(1 + (data.stores || []).length), scope: "colgroup", text: capacity })]));
+        }
+        const modelCell = el("td", { class: "model" }, [
+          el("span", { class: "color", text: model.color }),
+          el("span", { class: "part", text: model.part })
+        ]);
+        const any = Object.values(model.stores || {}).some((cell) => inStock(cell.status));
+        if (any) modelCell.style.boxShadow = "inset 3px 0 0 var(--good)";
+        const row = el("tr", {}, [modelCell]);
+        (data.stores || []).forEach((store) => {
+          const cell = (model.stores || {})[store.id] || { status: "unknown", text: "No reading yet", stale: true };
+          const label = statusLabel(cell);
+          const td = el("td", { class: (label === "In stock" ? "in" : label === "No reading" ? "unknown" : "out") + (cell.stale ? " stale" : "") });
+          if (label === "In stock") {
+            const link = el("a", { href: model.buy_url, text: "In stock" });
+            td.append(link);
+            const quote = cell.text || "";
+            if (quote && !/unavailable/i.test(quote) && quote !== "Last saved reading") {
+              td.append(el("span", { class: "quote", text: quote }));
+            }
+          } else if (label === "No") {
+            td.append(el("span", { class: "visually-hidden", text: "Unavailable at " + store.name }));
+            td.append(el("span", { "aria-hidden": "true", text: "No" }));
+          } else {
+            td.append(document.createTextNode("No reading"));
+          }
+          if (cell.last_seen_display) {
+            td.append(el("span", { class: "seen", text: "Last in stock " + cell.last_seen_display }));
+          } else if (label !== "In stock") {
+            td.append(el("span", { class: "seen", text: "Not seen yet" }));
+          }
+          row.append(td);
+        });
+        body.append(row);
+      });
+      table.append(body);
+      app.append(el("div", { class: "card" }, [
+        el("div", { class: "scroller" }, [table]),
+        el("p", { class: "legend", text: "In stock means Apple is offering pickup. No means currently unavailable. Last in stock is the last Melbourne time we saw pickup offered. Swipe sideways for every store." })
+      ]));
+      const changes = data.recent_history || [];
+      const history = el("ul", { class: "history" });
+      if (!changes.length) {
+        history.append(el("li", { text: "No changes recorded yet." }));
+      } else {
+        changes.forEach((event) => {
+          const cameIn = event.change === "in_stock";
+          history.append(el("li", {}, [
+            el("span", { text: event.capacity + " " + event.color + " at " + event.store }),
+            el("span", { class: "change" + (cameIn ? " in" : ""), text: (cameIn ? "In stock" : "Out of stock") + " · " + (event.at_display || "") })
+          ]));
+        });
+      }
+      app.append(el("div", { class: "card" }, [el("h2", { text: "Recent changes" }), history]));
+      if (data.alert_note) app.append(el("p", { class: "legend", text: data.alert_note }));
+    }
+
+    async function load(manual) {
+      if (location.protocol === "file:") {
+        app.replaceChildren(el("div", { class: "callout warn" }, [el("p", { text: "Open the published page in a browser. This file cannot load the results on its own." })]));
+        return;
+      }
+      if (manual) refreshButton.textContent = "Refreshing…";
+      try {
+        const response = await fetch(dataUrl(), { cache: "no-store" });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const data = await response.json();
+        render(data);
+      } catch (error) {
+        if (latest) render(latest, "Could not refresh just now. Showing the last result loaded on this phone.");
+        else app.replaceChildren(el("div", { class: "callout warn", role: "alert" }, [el("p", { text: "The results are not available yet. If this page was just turned on, the first check may still be running." })]));
+      } finally {
+        refreshButton.textContent = "Refresh";
+      }
+    }
+
+    function dataUrl() {
+      let path = location.pathname;
+      if (path.endsWith("/index.html")) path = path.slice(0, -"index.html".length);
+      if (!path.endsWith("/")) path += "/";
+      return path + "data.json?ts=" + Date.now();
+    }
+
+    function updateAge() {
+      const when = document.getElementById("when");
+      if (!when || !latest) return;
+      const problem = latest.problem;
+      const iso = problem && problem.stale ? latest.last_success : latest.checked_at;
+      when.classList.toggle("late", ageSeconds(iso) > 5 * 60);
+      if (problem && problem.stale) {
+        when.replaceChildren(
+          el("strong", { text: "Last attempt " + (latest.checked_at_display || "") }),
+          document.createTextNode(" (" + ago(latest.checked_at) + "). The grid is an older reading.")
+        );
+      } else {
+        when.replaceChildren(
+          document.createTextNode("Last checked "),
+          el("strong", { text: latest.checked_at_display || "" }),
+          document.createTextNode(" (" + ago(latest.checked_at) + ").")
+        );
+      }
+    }
+
+    refreshButton.addEventListener("click", () => load(true));
+    load(false);
+    timer = setInterval(() => load(false), 60000);
+    setInterval(updateAge, 30000);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) load(false);
+    });
+  </script>
+</body>
+</html>

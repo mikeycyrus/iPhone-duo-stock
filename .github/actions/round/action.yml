@@ -1,0 +1,35 @@
+name: Check and publish
+description: Check pickup stock once, publish the page, then optionally wait so the next check is about a minute later.
+
+inputs:
+  artifact:
+    description: Pages artifact name for this check
+    required: true
+  pause:
+    description: Wait after publishing so checks stay about a minute apart
+    required: true
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - name: Check Apple pickup stock
+      shell: bash
+      run: python3 check.py --once
+
+    - name: Upload the webpage
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: docs
+        name: ${{ inputs.artifact }}
+
+    - name: Publish the webpage
+      continue-on-error: true
+      uses: actions/deploy-pages@v4
+      with:
+        artifact_name: ${{ inputs.artifact }}
+
+    - name: Wait for the next minute
+      if: inputs.pause == 'true'
+      shell: bash
+      run: python3 check.py --pause
