@@ -494,6 +494,17 @@
       "store_id": "R530",
       "store": "Fountain Gate",
       "change": "out_of_stock"
+    },
+    {
+      "at": "2026-10-30T15:59:26+11:00",
+      "at_display": "Fri 30 Oct 2026, 3:59 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
+      "change": "in_stock"
     }
   ]
 }
