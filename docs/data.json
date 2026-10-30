@@ -1,26 +1,14 @@
 {
-  "checked_at": "2026-10-30T13:36:20+11:00",
-  "checked_at_display": "Fri 30 Oct 2026, 1:36 PM AEDT",
-  "last_success": "2026-10-30T13:36:20+11:00",
-  "last_success_display": "Fri 30 Oct 2026, 1:36 PM AEDT",
+  "checked_at": "2026-10-30T13:41:06+11:00",
+  "checked_at_display": "Fri 30 Oct 2026, 1:41 PM AEDT",
+  "last_success": "2026-10-30T13:41:06+11:00",
+  "last_success_display": "Fri 30 Oct 2026, 1:41 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
-  "any_in_stock": true,
-  "in_stock_count": 1,
-  "in_stock": [
-    {
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R180",
-      "store": "Chadstone",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
-      "text": "Available Today",
-      "stale": false
-    }
-  ],
+  "any_in_stock": false,
+  "in_stock_count": 0,
+  "in_stock": [],
   "stores": [
     {
       "id": "R504",
@@ -64,11 +52,11 @@
           "last_seen_display": null
         },
         "R180": {
-          "status": "available",
-          "text": "Available Today",
+          "status": "unavailable",
+          "text": "Currently unavailable",
           "stale": false,
-          "last_seen": "2026-10-30T13:36:20+11:00",
-          "last_seen_display": "1:36 PM"
+          "last_seen": "2026-10-30T13:37:08+11:00",
+          "last_seen_display": "1:37 PM"
         },
         "R342": {
           "status": "unavailable",
@@ -139,6 +127,17 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-10-30T13:38:07+11:00",
+      "at_display": "Fri 30 Oct 2026, 1:38 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R180",
+      "store": "Chadstone",
+      "change": "out_of_stock"
+    },
     {
       "at": "2026-10-30T13:35:20+11:00",
       "at_display": "Fri 30 Oct 2026, 1:35 PM AEDT",
@@ -259,17 +258,6 @@
       "store_id": "R180",
       "store": "Chadstone",
       "change": "out_of_stock"
-    },
-    {
-      "at": "2026-10-30T11:50:20+11:00",
-      "at_display": "Fri 30 Oct 2026, 11:50 AM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R180",
-      "store": "Chadstone",
-      "change": "in_stock"
     }
   ],
   "alerts": "on",
