@@ -1,14 +1,26 @@
 {
-  "checked_at": "2026-10-30T20:55:41+11:00",
-  "checked_at_display": "Fri 30 Oct 2026, 8:55 PM AEDT",
-  "last_success": "2026-10-30T20:55:41+11:00",
-  "last_success_display": "Fri 30 Oct 2026, 8:55 PM AEDT",
+  "checked_at": "2026-10-30T21:00:23+11:00",
+  "checked_at_display": "Fri 30 Oct 2026, 9:00 PM AEDT",
+  "last_success": "2026-10-30T21:00:23+11:00",
+  "last_success_display": "Fri 30 Oct 2026, 9:00 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
-  "any_in_stock": false,
-  "in_stock_count": 0,
-  "in_stock": [],
+  "any_in_stock": true,
+  "in_stock_count": 1,
+  "in_stock": [
+    {
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
+      "text": "Available Tomorrow",
+      "stale": false
+    }
+  ],
   "stores": [
     {
       "id": "R504",
@@ -66,11 +78,11 @@
           "last_seen_display": "8:54 PM"
         },
         "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Tomorrow",
           "stale": false,
-          "last_seen": "2026-10-30T19:17:37+11:00",
-          "last_seen_display": "7:17 PM"
+          "last_seen": "2026-10-30T21:00:23+11:00",
+          "last_seen_display": "9:00 PM"
         },
         "R530": {
           "status": "unavailable",
@@ -127,6 +139,17 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-10-30T20:59:24+11:00",
+      "at_display": "Fri 30 Oct 2026, 8:59 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "change": "in_stock"
+    },
     {
       "at": "2026-10-30T20:55:41+11:00",
       "at_display": "Fri 30 Oct 2026, 8:55 PM AEDT",
@@ -247,17 +270,6 @@
       "store_id": "R504",
       "store": "Highpoint",
       "change": "in_stock"
-    },
-    {
-      "at": "2026-10-30T19:28:11+11:00",
-      "at_display": "Fri 30 Oct 2026, 7:28 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R504",
-      "store": "Highpoint",
-      "change": "out_of_stock"
     }
   ],
   "alerts": "on",
