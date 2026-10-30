@@ -1,14 +1,37 @@
 {
-  "checked_at": "2026-10-30T14:10:23+11:00",
-  "checked_at_display": "Fri 30 Oct 2026, 2:10 PM AEDT",
-  "last_success": "2026-10-30T14:10:23+11:00",
-  "last_success_display": "Fri 30 Oct 2026, 2:10 PM AEDT",
+  "checked_at": "2026-10-30T14:15:06+11:00",
+  "checked_at_display": "Fri 30 Oct 2026, 2:15 PM AEDT",
+  "last_success": "2026-10-30T14:15:06+11:00",
+  "last_success_display": "Fri 30 Oct 2026, 2:15 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
-  "any_in_stock": false,
-  "in_stock_count": 0,
-  "in_stock": [],
+  "any_in_stock": true,
+  "in_stock_count": 2,
+  "in_stock": [
+    {
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    },
+    {
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    }
+  ],
   "stores": [
     {
       "id": "R504",
@@ -45,11 +68,11 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
       "stores": {
         "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
+          "last_seen": "2026-10-30T14:15:06+11:00",
+          "last_seen_display": "2:15 PM"
         },
         "R180": {
           "status": "unavailable",
@@ -89,11 +112,11 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
       "stores": {
         "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
+          "last_seen": "2026-10-30T14:15:06+11:00",
+          "last_seen_display": "2:15 PM"
         },
         "R180": {
           "status": "unavailable",
@@ -127,6 +150,28 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-10-30T14:14:07+11:00",
+      "at_display": "Fri 30 Oct 2026, 2:14 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-10-30T14:13:06+11:00",
+      "at_display": "Fri 30 Oct 2026, 2:13 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "in_stock"
+    },
     {
       "at": "2026-10-30T13:47:19+11:00",
       "at_display": "Fri 30 Oct 2026, 1:47 PM AEDT",
@@ -235,28 +280,6 @@
       "color": "Star White",
       "store_id": "R342",
       "store": "Doncaster",
-      "change": "out_of_stock"
-    },
-    {
-      "at": "2026-10-30T12:40:23+11:00",
-      "at_display": "Fri 30 Oct 2026, 12:40 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R342",
-      "store": "Doncaster",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-10-30T12:28:14+11:00",
-      "at_display": "Fri 30 Oct 2026, 12:28 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R180",
-      "store": "Chadstone",
       "change": "out_of_stock"
     }
   ],
