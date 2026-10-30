@@ -52,8 +52,13 @@
       line-height: 1.4;
     }
     a { color: inherit; }
-    header, main, footer { width: min(960px, calc(100% - 28px)); margin: 0 auto; }
-    header { padding: 22px 0 8px; }
+    header, main, footer {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    header { padding-top: 22px; padding-bottom: 8px; }
     h1 { font-size: clamp(1.7rem, 5vw, 2.15rem); line-height: 1.1; margin: 0 0 6px; letter-spacing: -0.03em; }
     .sub { margin: 0; color: var(--muted); }
     .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 14px 0; }
@@ -91,9 +96,16 @@
     .when { margin: 0 0 12px; }
     .when strong { font-variant-numeric: tabular-nums; }
     .when.late { color: var(--late); }
-    .scroller { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -6px; padding: 0 6px 4px; }
-    table { border-collapse: separate; border-spacing: 0; width: max-content; min-width: 100%; }
-    th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: center; vertical-align: middle; }
+    .scroller { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { border-collapse: separate; border-spacing: 0; width: 100%; table-layout: fixed; }
+    col.model-col { width: 9.25rem; }
+    th, td {
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      vertical-align: middle;
+      overflow-wrap: anywhere;
+    }
     th { font-size: 0.82rem; font-weight: 650; color: var(--muted); }
     th.model, td.model {
       text-align: left;
@@ -101,11 +113,11 @@
       left: 0;
       background: var(--card);
       z-index: 1;
-      min-width: 7.2rem;
       box-shadow: 8px 0 10px -10px rgba(0, 0, 0, 0.45);
     }
-    th.store { max-width: 6.2rem; white-space: normal; }
-    th.store a { text-decoration: none; }
+    th.store { white-space: normal; line-height: 1.15; }
+    th.store a { text-decoration: none; display: block; }
+    .name-short { display: none; }
     tr.group th {
       text-align: left;
       background: var(--quiet-bg);
@@ -119,7 +131,7 @@
     td.model .color { display: block; font-weight: 650; }
     td.model .part { display: block; color: var(--muted); font-size: 0.75rem; font-weight: 500; }
     td.in { background: var(--good-bg); }
-    td.in a { color: var(--good); font-weight: 750; text-decoration: none; display: inline-block; padding: 6px 2px; }
+    td.in a { color: var(--good); font-weight: 750; text-decoration: none; display: block; padding: 6px 0; }
     td.out { color: var(--muted); }
     td.unknown { color: var(--late); }
     td.stale { opacity: 0.72; }
@@ -132,7 +144,31 @@
     .history .change { display: block; margin-top: 2px; color: var(--muted); font-variant-numeric: tabular-nums; }
     .history .in { color: var(--good); font-weight: 700; }
     .legend, footer { color: var(--muted); font-size: 0.92rem; }
-    footer { padding: 8px 0 36px; }
+    footer { padding-top: 8px; padding-bottom: 36px; }
+    @media (max-width: 720px) {
+      header, main, footer { padding-left: 4px; padding-right: 4px; }
+      header { padding-top: 12px; padding-bottom: 2px; }
+      .card { padding: 6px 4px; border-radius: 12px; margin: 8px 0; }
+      .callout { padding: 8px; }
+      col.model-col { width: 6.5rem; }
+      th, td { padding: 6px 3px; }
+      footer { padding-bottom: 24px; }
+    }
+    @media (max-width: 440px) {
+      header, main, footer { padding-left: 3px; padding-right: 3px; }
+      .card { padding: 4px 2px; border-radius: 10px; }
+      col.model-col { width: 4.65rem; }
+      th, td { padding: 4px 1px; }
+      th { font-size: 0.625rem; }
+      th.model, td.model, tr.group th { position: static; box-shadow: none; }
+      td.model .color { font-size: 0.75rem; line-height: 1.15; overflow-wrap: normal; }
+      td.model .part { font-size: 0.625rem; overflow-wrap: normal; }
+      td.in a { padding: 1px 0; font-size: 0.6875rem; }
+      .quote, .seen { font-size: 0.6rem; }
+      .name-full { display: none; }
+      .name-short { display: inline; }
+      .legend, footer { font-size: 0.8rem; }
+    }
     footer a { color: var(--ink); }
     .loading { color: var(--muted); }
     .visually-hidden {
@@ -204,6 +240,16 @@
       return value.startsWith("available") && !value.startsWith("unavailable");
     }
 
+    function shortStoreName(name) {
+      return {
+        Highpoint: "Highpt",
+        Chadstone: "Chad",
+        Doncaster: "Donc",
+        Southland: "South",
+        "Fountain Gate": "F.Gate"
+      }[name] || name;
+    }
+
     function statusLabel(cell) {
       if (inStock(cell.status)) return "In stock";
       if ((cell.status || "").toLowerCase() === "unknown") return "No reading";
@@ -251,9 +297,17 @@
 
       const table = el("table");
       table.append(el("caption", { class: "visually-hidden", text: "iPhone Duo pickup by model and store" }));
+      const cols = el("colgroup", {}, [el("col", { class: "model-col" })]);
+      (data.stores || []).forEach(() => cols.append(el("col")));
+      table.append(cols);
       const head = el("tr", {}, [el("th", { class: "model", scope: "col", text: "Model" })]);
       (data.stores || []).forEach((store) => {
-        head.append(el("th", { class: "store", scope: "col" }, [el("a", { href: store.url, text: store.name })]));
+        const link = el("a", { href: store.url, "aria-label": store.name });
+        link.append(
+          el("span", { class: "name-full", "aria-hidden": "true", text: store.name }),
+          el("span", { class: "name-short", "aria-hidden": "true", text: shortStoreName(store.name) })
+        );
+        head.append(el("th", { class: "store", scope: "col" }, [link]));
       });
       table.append(el("thead", {}, [head]));
       const body = el("tbody");
@@ -299,7 +353,7 @@
       table.append(body);
       app.append(el("div", { class: "card" }, [
         el("div", { class: "scroller" }, [table]),
-        el("p", { class: "legend", text: "In stock means Apple is offering pickup. No means currently unavailable. Last in stock is the last Melbourne time we saw pickup offered. Swipe sideways for every store." })
+        el("p", { class: "legend", text: "In stock means Apple is offering pickup. No means currently unavailable. Last in stock is the last Melbourne time we saw pickup offered." })
       ]));
       const changes = data.recent_history || [];
       const history = el("ul", { class: "history" });
