@@ -1,13 +1,13 @@
 {
-  "checked_at": "2026-10-30T17:25:38+11:00",
-  "checked_at_display": "Fri 30 Oct 2026, 5:25 PM AEDT",
-  "last_success": "2026-10-30T17:25:38+11:00",
-  "last_success_display": "Fri 30 Oct 2026, 5:25 PM AEDT",
+  "checked_at": "2026-10-30T17:30:26+11:00",
+  "checked_at_display": "Fri 30 Oct 2026, 5:30 PM AEDT",
+  "last_success": "2026-10-30T17:30:26+11:00",
+  "last_success_display": "Fri 30 Oct 2026, 5:30 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
   "any_in_stock": true,
-  "in_stock_count": 5,
+  "in_stock_count": 4,
   "in_stock": [
     {
       "part": "MK2D4X/A",
@@ -52,17 +52,6 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
       "text": "Available Today",
       "stale": false
-    },
-    {
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R343",
-      "store": "Southland",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
-      "text": "Available Today",
-      "stale": false
     }
   ],
   "stores": [
@@ -104,8 +93,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T17:25:38+11:00",
-          "last_seen_display": "5:25 PM"
+          "last_seen": "2026-10-30T17:30:26+11:00",
+          "last_seen_display": "5:30 PM"
         },
         "R180": {
           "status": "unavailable",
@@ -118,15 +107,15 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T17:25:38+11:00",
-          "last_seen_display": "5:25 PM"
+          "last_seen": "2026-10-30T17:30:26+11:00",
+          "last_seen_display": "5:30 PM"
         },
         "R343": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T17:25:38+11:00",
-          "last_seen_display": "5:25 PM"
+          "last_seen": "2026-10-30T17:30:26+11:00",
+          "last_seen_display": "5:30 PM"
         },
         "R530": {
           "status": "unavailable",
@@ -162,15 +151,15 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T17:25:38+11:00",
-          "last_seen_display": "5:25 PM"
+          "last_seen": "2026-10-30T17:30:26+11:00",
+          "last_seen_display": "5:30 PM"
         },
         "R343": {
-          "status": "available",
-          "text": "Available Today",
+          "status": "unavailable",
+          "text": "Currently unavailable",
           "stale": false,
-          "last_seen": "2026-10-30T17:25:38+11:00",
-          "last_seen_display": "5:25 PM"
+          "last_seen": "2026-10-30T17:27:26+11:00",
+          "last_seen_display": "5:27 PM"
         },
         "R530": {
           "status": "unavailable",
@@ -183,6 +172,17 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-10-30T17:28:26+11:00",
+      "at_display": "Fri 30 Oct 2026, 5:28 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "change": "out_of_stock"
+    },
     {
       "at": "2026-10-30T17:25:38+11:00",
       "at_display": "Fri 30 Oct 2026, 5:25 PM AEDT",
@@ -303,17 +303,6 @@
       "store_id": "R530",
       "store": "Fountain Gate",
       "change": "out_of_stock"
-    },
-    {
-      "at": "2026-10-30T15:53:41+11:00",
-      "at_display": "Fri 30 Oct 2026, 3:53 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R530",
-      "store": "Fountain Gate",
-      "change": "in_stock"
     }
   ],
   "alerts": "on",
