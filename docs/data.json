@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-10-30T12:39:41+11:00",
-  "checked_at_display": "Fri 30 Oct 2026, 12:39 PM AEDT",
-  "last_success": "2026-10-30T12:39:41+11:00",
-  "last_success_display": "Fri 30 Oct 2026, 12:39 PM AEDT",
+  "checked_at": "2026-10-30T12:44:22+11:00",
+  "checked_at_display": "Fri 30 Oct 2026, 12:44 PM AEDT",
+  "last_success": "2026-10-30T12:44:22+11:00",
+  "last_success_display": "Fri 30 Oct 2026, 12:44 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
@@ -67,15 +67,15 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T12:39:41+11:00",
-          "last_seen_display": "12:39 PM"
+          "last_seen": "2026-10-30T12:44:22+11:00",
+          "last_seen_display": "12:44 PM"
         },
         "R342": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
+          "last_seen": "2026-10-30T12:42:22+11:00",
+          "last_seen_display": "12:42 PM"
         },
         "R343": {
           "status": "unavailable",
@@ -139,6 +139,28 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-10-30T12:43:22+11:00",
+      "at_display": "Fri 30 Oct 2026, 12:43 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "change": "out_of_stock"
+    },
+    {
+      "at": "2026-10-30T12:40:23+11:00",
+      "at_display": "Fri 30 Oct 2026, 12:40 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "change": "in_stock"
+    },
     {
       "at": "2026-10-30T12:28:14+11:00",
       "at_display": "Fri 30 Oct 2026, 12:28 PM AEDT",
