@@ -197,6 +197,39 @@
       "store_id": "R504",
       "store": "Highpoint",
       "change": "in_stock"
+    },
+    {
+      "at": "2026-10-30T14:34:39+11:00",
+      "at_display": "Fri 30 Oct 2026, 2:34 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "out_of_stock"
+    },
+    {
+      "at": "2026-10-30T14:35:39+11:00",
+      "at_display": "Fri 30 Oct 2026, 2:35 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "out_of_stock"
+    },
+    {
+      "at": "2026-10-30T14:35:39+11:00",
+      "at_display": "Fri 30 Oct 2026, 2:35 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "change": "in_stock"
     }
   ]
 }
