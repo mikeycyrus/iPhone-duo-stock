@@ -1,14 +1,37 @@
 {
-  "checked_at": "2026-10-31T10:13:05+11:00",
-  "checked_at_display": "Sat 31 Oct 2026, 10:13 AM AEDT",
-  "last_success": "2026-10-31T10:13:05+11:00",
-  "last_success_display": "Sat 31 Oct 2026, 10:13 AM AEDT",
+  "checked_at": "2026-10-31T10:17:50+11:00",
+  "checked_at_display": "Sat 31 Oct 2026, 10:17 AM AEDT",
+  "last_success": "2026-10-31T10:17:50+11:00",
+  "last_success_display": "Sat 31 Oct 2026, 10:17 AM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
-  "any_in_stock": false,
-  "in_stock_count": 0,
-  "in_stock": [],
+  "any_in_stock": true,
+  "in_stock_count": 2,
+  "in_stock": [
+    {
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    },
+    {
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    }
+  ],
   "stores": [
     {
       "id": "R504",
@@ -45,11 +68,11 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
       "stores": {
         "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T22:41:30+11:00",
-          "last_seen_display": "Fri 30 Oct, 10:41 PM"
+          "last_seen": "2026-10-31T10:17:50+11:00",
+          "last_seen_display": "10:17 AM"
         },
         "R180": {
           "status": "unavailable",
@@ -89,11 +112,11 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
       "stores": {
         "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T17:55:14+11:00",
-          "last_seen_display": "Fri 30 Oct, 5:55 PM"
+          "last_seen": "2026-10-31T10:17:50+11:00",
+          "last_seen_display": "10:17 AM"
         },
         "R180": {
           "status": "unavailable",
@@ -127,6 +150,28 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-10-31T10:15:51+11:00",
+      "at_display": "Sat 31 Oct 2026, 10:15 AM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-10-31T10:15:51+11:00",
+      "at_display": "Sat 31 Oct 2026, 10:15 AM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "in_stock"
+    },
     {
       "at": "2026-10-31T08:42:10+11:00",
       "at_display": "Sat 31 Oct 2026, 8:42 AM AEDT",
@@ -229,28 +274,6 @@
     {
       "at": "2026-10-30T21:53:00+11:00",
       "at_display": "Fri 30 Oct 2026, 9:53 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R342",
-      "store": "Doncaster",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-10-30T21:31:52+11:00",
-      "at_display": "Fri 30 Oct 2026, 9:31 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R342",
-      "store": "Doncaster",
-      "change": "out_of_stock"
-    },
-    {
-      "at": "2026-10-30T21:25:08+11:00",
-      "at_display": "Fri 30 Oct 2026, 9:25 PM AEDT",
       "part": "MK2D4X/A",
       "name": "iPhone Duo 256GB Star White",
       "capacity": "256GB",
