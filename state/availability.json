@@ -1,19 +1,19 @@
 {
-  "status_updated": "2026-10-30T15:48:57+11:00",
-  "last_success": "2026-10-30T15:49:57+11:00",
+  "status_updated": "2026-10-30T15:54:40+11:00",
+  "last_success": "2026-10-30T15:54:40+11:00",
   "statuses": {
     "MK2D4X/A": {
       "R504": "available",
       "R180": "unavailable",
       "R342": "unavailable",
-      "R343": "unavailable",
+      "R343": "available",
       "R530": "available"
     },
     "MK2F4X/A": {
       "R504": "available",
       "R180": "unavailable",
       "R342": "unavailable",
-      "R343": "unavailable",
+      "R343": "available",
       "R530": "unavailable"
     }
   },
@@ -22,28 +22,30 @@
       "R504": "available",
       "R180": "unavailable",
       "R342": "unavailable",
-      "R343": "unavailable",
+      "R343": "available",
       "R530": "available"
     },
     "MK2F4X/A": {
       "R504": "available",
       "R180": "unavailable",
       "R342": "unavailable",
-      "R343": "unavailable",
+      "R343": "available",
       "R530": "unavailable"
     }
   },
   "last_seen": {
     "MK2D4X/A": {
-      "R504": "2026-10-30T15:49:57+11:00",
+      "R504": "2026-10-30T15:54:40+11:00",
       "R180": "2026-10-30T13:45:52+11:00",
       "R342": "2026-10-30T15:47:57+11:00",
-      "R530": "2026-10-30T15:49:57+11:00"
+      "R343": "2026-10-30T15:54:40+11:00",
+      "R530": "2026-10-30T15:54:40+11:00"
     },
     "MK2F4X/A": {
-      "R504": "2026-10-30T15:49:57+11:00",
+      "R504": "2026-10-30T15:54:40+11:00",
       "R180": "2026-10-30T12:50:52+11:00",
-      "R530": "2026-10-30T15:47:57+11:00"
+      "R343": "2026-10-30T15:54:40+11:00",
+      "R530": "2026-10-30T15:53:41+11:00"
     }
   }
 }

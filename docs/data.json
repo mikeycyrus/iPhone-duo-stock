@@ -1,13 +1,13 @@
 {
-  "checked_at": "2026-10-30T15:49:57+11:00",
-  "checked_at_display": "Fri 30 Oct 2026, 3:49 PM AEDT",
-  "last_success": "2026-10-30T15:49:57+11:00",
-  "last_success_display": "Fri 30 Oct 2026, 3:49 PM AEDT",
+  "checked_at": "2026-10-30T15:54:40+11:00",
+  "checked_at_display": "Fri 30 Oct 2026, 3:54 PM AEDT",
+  "last_success": "2026-10-30T15:54:40+11:00",
+  "last_success_display": "Fri 30 Oct 2026, 3:54 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
   "any_in_stock": true,
-  "in_stock_count": 3,
+  "in_stock_count": 5,
   "in_stock": [
     {
       "part": "MK2D4X/A",
@@ -16,6 +16,17 @@
       "color": "Star White",
       "store_id": "R504",
       "store": "Highpoint",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    },
+    {
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
       "text": "Available Today",
       "stale": false
@@ -38,6 +49,17 @@
       "color": "Star White",
       "store_id": "R504",
       "store": "Highpoint",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    },
+    {
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
       "text": "Available Today",
       "stale": false
@@ -82,8 +104,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T15:49:57+11:00",
-          "last_seen_display": "3:49 PM"
+          "last_seen": "2026-10-30T15:54:40+11:00",
+          "last_seen_display": "3:54 PM"
         },
         "R180": {
           "status": "unavailable",
@@ -100,18 +122,18 @@
           "last_seen_display": "3:47 PM"
         },
         "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
+          "last_seen": "2026-10-30T15:54:40+11:00",
+          "last_seen_display": "3:54 PM"
         },
         "R530": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T15:49:57+11:00",
-          "last_seen_display": "3:49 PM"
+          "last_seen": "2026-10-30T15:54:40+11:00",
+          "last_seen_display": "3:54 PM"
         }
       }
     },
@@ -126,8 +148,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-10-30T15:49:57+11:00",
-          "last_seen_display": "3:49 PM"
+          "last_seen": "2026-10-30T15:54:40+11:00",
+          "last_seen_display": "3:54 PM"
         },
         "R180": {
           "status": "unavailable",
@@ -144,23 +166,67 @@
           "last_seen_display": null
         },
         "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
+          "last_seen": "2026-10-30T15:54:40+11:00",
+          "last_seen_display": "3:54 PM"
         },
         "R530": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
-          "last_seen": "2026-10-30T15:47:57+11:00",
-          "last_seen_display": "3:47 PM"
+          "last_seen": "2026-10-30T15:53:41+11:00",
+          "last_seen_display": "3:53 PM"
         }
       }
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-10-30T15:54:40+11:00",
+      "at_display": "Fri 30 Oct 2026, 3:54 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
+      "change": "out_of_stock"
+    },
+    {
+      "at": "2026-10-30T15:53:41+11:00",
+      "at_display": "Fri 30 Oct 2026, 3:53 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-10-30T15:51:41+11:00",
+      "at_display": "Fri 30 Oct 2026, 3:51 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-10-30T15:51:41+11:00",
+      "at_display": "Fri 30 Oct 2026, 3:51 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "change": "in_stock"
+    },
     {
       "at": "2026-10-30T15:48:57+11:00",
       "at_display": "Fri 30 Oct 2026, 3:48 PM AEDT",
@@ -248,50 +314,6 @@
       "store_id": "R504",
       "store": "Highpoint",
       "change": "out_of_stock"
-    },
-    {
-      "at": "2026-10-30T15:27:57+11:00",
-      "at_display": "Fri 30 Oct 2026, 3:27 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R504",
-      "store": "Highpoint",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-10-30T15:21:23+11:00",
-      "at_display": "Fri 30 Oct 2026, 3:21 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R504",
-      "store": "Highpoint",
-      "change": "out_of_stock"
-    },
-    {
-      "at": "2026-10-30T15:20:23+11:00",
-      "at_display": "Fri 30 Oct 2026, 3:20 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R504",
-      "store": "Highpoint",
-      "change": "out_of_stock"
-    },
-    {
-      "at": "2026-10-30T15:20:23+11:00",
-      "at_display": "Fri 30 Oct 2026, 3:20 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R504",
-      "store": "Highpoint",
-      "change": "in_stock"
     }
   ],
   "alerts": "on",
