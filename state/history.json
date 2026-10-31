@@ -1484,6 +1484,28 @@
       "store_id": "R530",
       "store": "Fountain Gate",
       "change": "out_of_stock"
+    },
+    {
+      "at": "2026-10-31T12:25:05+11:00",
+      "at_display": "Sat 31 Oct 2026, 12:25 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R180",
+      "store": "Chadstone",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-10-31T12:26:05+11:00",
+      "at_display": "Sat 31 Oct 2026, 12:26 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
+      "change": "out_of_stock"
     }
   ]
 }
