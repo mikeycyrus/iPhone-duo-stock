@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Offline tests for the stock checker. No network."""
 
+import io
 import json
 import unittest
+import urllib.error
 from datetime import datetime
 from unittest.mock import patch
 from zoneinfo import ZoneInfo
@@ -89,7 +91,7 @@ class LogicTests(unittest.TestCase):
         self.assertEqual([(item["store"]) for item in built["arrivals"]], ["Doncaster"])
         self.assertEqual(built["transitions"][0]["change"], "in_stock")
         self.assertEqual(built["transitions"][0]["store_id"], "R342")
-        self.assertEqual(built["data"]["models"][0]["stores"]["R342"]["last_seen_display"], "7:52 PM")
+        self.assertEqual(built["data"]["models"][0]["stores"]["R342"]["last_seen_display"], "7:52pm")
         held = check.hold_alerted(previous, built["baseline"], built["arrivals"])
         self.assertEqual(held["statuses"]["MK2D4X/A"]["R342"], "available")
         self.assertEqual(held["alerted"]["MK2D4X/A"]["R342"], "unavailable")
@@ -107,7 +109,7 @@ class LogicTests(unittest.TestCase):
         self.assertEqual(built["arrivals"], [])
         self.assertEqual(len(built["transitions"]), len(check.PARTS) * len(check.STORES))
         self.assertTrue(all(event["change"] == "out_of_stock" for event in built["transitions"]))
-        self.assertEqual(built["data"]["models"][0]["stores"]["R504"]["last_seen_display"], "7:40 PM")
+        self.assertEqual(built["data"]["models"][0]["stores"]["R504"]["last_seen_display"], "7:40pm")
 
     def test_history_merges_and_scheduler_waits(self):
         first = {"at": "2026-10-29T19:00:00+11:00", "part": "MK2D4X/A", "store_id": "R504", "change": "in_stock"}
@@ -283,6 +285,105 @@ class LogicTests(unittest.TestCase):
         parsed = check.interpret_response(200, json.dumps(payload).encode(), "MK2D4X/A")
         self.assertTrue(parsed["ok"])
         self.assertNotIn("R999", parsed["stores"])
+
+    def test_last_seen_on_another_day_stays_short(self):
+        previous = _baseline("unavailable")
+        previous["last_seen"] = {"MK2D4X/A": {"R504": "2026-10-28T09:05:00+11:00"}}
+        built = check.build_result(previous, _observations("unavailable"), [], NOW)
+        self.assertEqual(built["data"]["models"][0]["stores"]["R504"]["last_seen_display"], "28 Oct 9:05am")
+
+    def test_last_success_display_uses_melbourne_zone_name(self):
+        self.assertEqual(check._display_time(datetime.fromisoformat("2026-10-29T19:40:00+11:00")), "Thu 29 Oct 2026, 7:40 PM AEDT")
+        self.assertEqual(check._display_time(datetime.fromisoformat("2026-06-15T12:00:00+10:00")), "Mon 15 Jun 2026, 12:00 PM AEST")
+        previous = _baseline("unavailable")
+        errors = [
+            {"part": part, "blocked": True, "status": 541, "message": check.plain_http_message(541, True)}
+            for part, _, _, _ in check.PARTS
+        ]
+        built = check.build_result(previous, {}, errors, NOW)
+        self.assertEqual(built["data"]["last_success_display"], "Thu 29 Oct 2026, 7:40 PM AEDT")
+        self.assertNotIn("UTC+", built["data"]["last_success_display"])
+        self.assertIn("AEDT", built["data"]["problem"]["text"])
+        published = {
+            "last_success": "2026-10-29T18:00:00+11:00",
+            "last_success_display": "Thu 29 Oct 2026, 6:00 PM UTC+11:00",
+            "problem": {
+                "stale": True,
+                "text": "Apple rejected this check (HTTP 541). The grid below is the last saved reading from Thu 29 Oct 2026, 6:00 PM UTC+11:00.",
+            },
+        }
+        check.apply_published_time(published, datetime.fromisoformat("2026-10-29T19:40:00+11:00"))
+        self.assertEqual(published["last_success_display"], "Thu 29 Oct 2026, 7:40 PM AEDT")
+        self.assertNotIn("UTC+", published["problem"]["text"])
+
+    def _http_error(self, status, body=b"nope"):
+        return urllib.error.HTTPError(
+            "https://www.apple.com/au/shop/retail/pickup-message",
+            status,
+            "error",
+            hdrs=None,
+            fp=io.BytesIO(body),
+        )
+
+    def _pickup_body(self, part="MK2D4X/A"):
+        stores = []
+        for store_id, _, _ in check.STORES:
+            stores.append(
+                {
+                    "storeNumber": store_id,
+                    "partsAvailability": {
+                        part: {"pickupDisplay": "unavailable", "pickupSearchQuote": "Currently unavailable"}
+                    },
+                }
+            )
+        return json.dumps({"head": {"status": "200"}, "body": {"stores": stores}}).encode()
+
+    def test_http_541_retries_once_before_success(self):
+        class FakeResponse:
+            status = 200
+
+            def __init__(self, body):
+                self._body = body
+
+            def read(self):
+                return self._body
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+        with patch("urllib.request.urlopen", side_effect=[self._http_error(541), FakeResponse(self._pickup_body())]) as opened, patch(
+            "time.sleep"
+        ) as slept, patch("random.randint", return_value=7) as wait:
+            result = check.fetch_part("MK2D4X/A")
+        self.assertTrue(result["ok"])
+        self.assertEqual(opened.call_count, 2)
+        wait.assert_called_once_with(5, 10)
+        slept.assert_called_once_with(7)
+
+    def test_http_541_is_recorded_when_the_retry_fails(self):
+        with patch("urllib.request.urlopen", side_effect=[self._http_error(541), self._http_error(541)]) as opened, patch(
+            "time.sleep"
+        ) as slept, patch("random.randint", return_value=9):
+            result = check.fetch_part("MK2D4X/A")
+        self.assertFalse(result["ok"])
+        self.assertEqual(result["status"], 541)
+        self.assertIn("HTTP 541", result["message"])
+        self.assertEqual(opened.call_count, 2)
+        slept.assert_called_once_with(9)
+
+    def test_other_failures_keep_their_existing_retry(self):
+        waits = [check._retry_wait(541) for _ in range(30)]
+        self.assertTrue(all(5 <= wait <= 10 for wait in waits))
+        self.assertIsNone(check._retry_wait(403))
+        self.assertEqual(check._retry_wait(429), 1.5)
+        with patch("urllib.request.urlopen", side_effect=[self._http_error(403)]) as opened, patch("time.sleep") as slept:
+            result = check.fetch_part("MK2D4X/A")
+        self.assertEqual(result["status"], 403)
+        self.assertEqual(opened.call_count, 1)
+        slept.assert_not_called()
 
     def test_fulfillment_endpoint_is_not_used(self):
         source = (check.ROOT / "check.py").read_text(encoding="utf-8")

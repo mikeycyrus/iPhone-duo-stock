@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import subprocess
 import sys
 import time
@@ -379,6 +380,19 @@ def stores_from_payload(payload: dict, part: str) -> dict:
     return found
 
 
+def _retry_wait(status: int | None) -> float | None:
+    """Seconds to wait before a second attempt, or None to keep this result.
+
+    HTTP 541 is Apple rejecting the request. Retry once after 5-10 seconds
+    before that rejection is recorded as a problem.
+    """
+    if status == 541:
+        return random.randint(5, 10)
+    if status in {429, 500, 502, 504} or status is None:
+        return 1.5
+    return None
+
+
 def fetch_part(part: str) -> dict:
     query = urllib.parse.urlencode({"pl": "true", "parts.0": part, "location": LOCATION})
     url = f"{PICKUP_URL}?{query}"
@@ -415,12 +429,14 @@ def fetch_part(part: str) -> dict:
             return last
         result = interpret_response(status, body, part)
         last = result
-        retryable = (not result["ok"]) and (
-            result.get("status") in {429, 500, 502, 504} or result.get("status") is None
-        )
-        if result["ok"] or not retryable or attempt == 1:
+        if result["ok"] or attempt == 1:
             return result
-        time.sleep(1.5)
+        wait = _retry_wait(result.get("status"))
+        if wait is None:
+            return result
+        if result.get("status") == 541:
+            print(f"{part}: Apple returned HTTP 541. Retrying once in {wait}s.")
+        time.sleep(wait)
     return last or {
         "ok": False,
         "blocked": False,
@@ -541,9 +557,10 @@ def seconds_until_next(started: float, now: float, interval: int = WATCH_INTERVA
 def short_when(moment: datetime, now: datetime) -> str:
     moment = moment.astimezone(MELBOURNE)
     now = now.astimezone(MELBOURNE)
+    clock = moment.strftime("%-I:%M%p").lower()
     if moment.date() == now.date():
-        return moment.strftime("%-I:%M %p")
-    return moment.strftime("%a %-d %b, %-I:%M %p")
+        return clock
+    return moment.strftime("%-d %b") + " " + clock
 
 
 def update_last_seen(previous: dict | None, observations: dict, now: datetime) -> dict:
@@ -635,6 +652,11 @@ def merge_events(*groups: list[dict]) -> list[dict]:
 
 def _display_time(moment: datetime) -> str:
     # %-d is Linux/macOS. The checker runs on GitHub's Ubuntu runners.
+    # Stored timestamps keep a numeric offset. Melbourne's zone name is AEDT or AEST.
+    if moment.tzinfo is None:
+        moment = moment.replace(tzinfo=MELBOURNE)
+    else:
+        moment = moment.astimezone(MELBOURNE)
     return moment.strftime("%a %-d %b %Y, %-I:%M %p %Z")
 
 

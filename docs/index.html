@@ -96,6 +96,12 @@
     .when { margin: 0 0 12px; }
     .when strong { font-variant-numeric: tabular-nums; }
     .when.late { color: var(--late); }
+    .status-quiet {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.35;
+    }
     .scroller { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     table { border-collapse: separate; border-spacing: 0; width: 100%; table-layout: fixed; }
     col.model-col { width: 9.25rem; }
@@ -136,6 +142,7 @@
     td.unknown { color: var(--late); }
     td.stale { opacity: 0.72; }
     .quote, .seen { display: block; margin-top: 2px; font-size: 0.68rem; line-height: 1.25; font-weight: 550; }
+    .seen { font-size: max(11px, 0.68rem); }
     .quote { color: var(--good); }
     .seen { color: var(--muted); }
     h2 { font-size: 1rem; margin: 0; }
@@ -164,7 +171,8 @@
       td.model .color { font-size: 0.75rem; line-height: 1.15; overflow-wrap: normal; }
       td.model .part { font-size: 0.625rem; overflow-wrap: normal; }
       td.in a { padding: 1px 0; font-size: 0.6875rem; }
-      .quote, .seen { font-size: 0.6rem; }
+      .quote { font-size: 0.6rem; }
+      .seen { font-size: 11px; line-height: 1.2; overflow-wrap: normal; }
       .name-full { display: none; }
       .name-short { display: inline; }
       .legend, footer { font-size: 0.8rem; }
@@ -235,6 +243,91 @@
       return (Date.now() - then) / 1000;
     }
 
+    // A failed check stays quiet while a good reading is still under 10 minutes old.
+    const FRESH_READING_MS = 10 * 60 * 1000;
+
+    function melbourneParts(iso) {
+      const then = new Date(iso);
+      if (Number.isNaN(then.getTime())) return null;
+      const parts = new Intl.DateTimeFormat("en-AU", {
+        timeZone: "Australia/Melbourne",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+        day: "numeric",
+        month: "short",
+        timeZoneName: "short"
+      }).formatToParts(then);
+      const pick = (type) => {
+        const found = parts.find((part) => part.type === type);
+        return found ? found.value : "";
+      };
+      return { date: then, pick };
+    }
+
+    function melbourneZone(parts) {
+      const name = parts.pick("timeZoneName");
+      if (name === "AEDT" || name === "AEST") return name;
+      const offset = new Intl.DateTimeFormat("en-AU", {
+        timeZone: "Australia/Melbourne",
+        timeZoneName: "shortOffset"
+      }).formatToParts(parts.date).find((part) => part.type === "timeZoneName");
+      const text = offset ? offset.value : "";
+      if (text.indexOf("11") !== -1) return "AEDT";
+      if (text.indexOf("10") !== -1) return "AEST";
+      return name;
+    }
+
+    function melbourneClock(iso, withZone) {
+      const parts = melbourneParts(iso);
+      if (!parts) return "";
+      const period = parts.pick("dayPeriod").toLowerCase().replace(/[^apm]/g, "");
+      const clock = parts.pick("hour") + ":" + parts.pick("minute") + period;
+      return withZone ? clock + " " + melbourneZone(parts) : clock;
+    }
+
+    function sameMelbourneDay(iso, now) {
+      const format = (value) => new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Australia/Melbourne",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).format(value);
+      const then = new Date(iso);
+      if (Number.isNaN(then.getTime())) return false;
+      return format(then) === format(now);
+    }
+
+    function seenClock(cell) {
+      if (cell.last_seen && !Number.isNaN(new Date(cell.last_seen).getTime())) {
+        const clock = melbourneClock(cell.last_seen, false);
+        if (sameMelbourneDay(cell.last_seen, new Date())) return clock;
+        const parts = melbourneParts(cell.last_seen);
+        return parts.pick("day") + " " + parts.pick("month") + " " + clock;
+      }
+      return String(cell.last_seen_display || "").replace(
+        /(\d{1,2}:\d{2})\s*([ap])\.?m\.?/ig,
+        (_, hm, ap) => hm + ap.toLowerCase() + "m"
+      );
+    }
+
+    function readingIsFresh(data) {
+      if (!data || !data.last_success) return false;
+      const then = new Date(data.last_success).getTime();
+      if (Number.isNaN(then)) return false;
+      return Date.now() - then <= FRESH_READING_MS;
+    }
+
+    function retryQuietly(data) {
+      return !!(data && data.problem && readingIsFresh(data));
+    }
+
+    function retryLine(data) {
+      const stamp = melbourneClock(data.last_success, true);
+      if (!stamp) return "Latest check retrying";
+      return "Updated " + stamp + " (latest check retrying)";
+    }
+
     function inStock(status) {
       const value = (status || "").toLowerCase();
       return value.startsWith("available") && !value.startsWith("unavailable");
@@ -263,23 +356,28 @@
       document.title = count ? "iPhone Duo — " + count + " in stock" : "iPhone Duo pickup — Melbourne";
       if (data.buy_url) document.getElementById("buy").href = data.buy_url;
 
-      const when = el("p", { class: "when", id: "when" });
       const problem = data.problem;
-      if (problem && problem.stale) {
-        when.append(el("strong", { text: "Last attempt " + (data.checked_at_display || "") }));
-        when.append(document.createTextNode(" (" + ago(data.checked_at) + "). The grid is an older reading."));
+      const quietRetry = retryQuietly(data);
+      if (quietRetry) {
+        app.append(el("p", { class: "status-quiet", id: "when", text: retryLine(data) }));
       } else {
-        when.append(document.createTextNode("Last checked "));
-        when.append(el("strong", { text: data.checked_at_display || "" }));
-        when.append(document.createTextNode(" (" + ago(data.checked_at) + ")."));
+        const when = el("p", { class: "when", id: "when" });
+        if (problem && problem.stale) {
+          when.append(el("strong", { text: "Last attempt " + (data.checked_at_display || "") }));
+          when.append(document.createTextNode(" (" + ago(data.checked_at) + "). The grid is an older reading."));
+        } else {
+          when.append(document.createTextNode("Last checked "));
+          when.append(el("strong", { text: data.checked_at_display || "" }));
+          when.append(document.createTextNode(" (" + ago(data.checked_at) + ")."));
+        }
+        if (ageSeconds(problem && problem.stale ? data.last_success : data.checked_at) > 5 * 60) {
+          when.classList.add("late");
+        }
+        app.append(when);
       }
-      if (ageSeconds(problem && problem.stale ? data.last_success : data.checked_at) > 5 * 60) {
-        when.classList.add("late");
-      }
-      app.append(when);
 
       if (note) app.append(el("div", { class: "callout warn", role: "status" }, [el("p", { text: note })]));
-      if (problem) app.append(el("div", { class: "callout warn", role: "alert" }, [el("p", { text: problem.text })]));
+      if (problem && !quietRetry) app.append(el("div", { class: "callout warn", role: "alert" }, [el("p", { text: problem.text })]));
 
       const shownStock = data.in_stock || [];
       if (shownStock.length) {
@@ -291,7 +389,7 @@
           list.append(line);
         });
         app.append(el("div", { class: "callout good" }, [el("p", { text: "In stock now" }), list]));
-      } else if (!problem) {
+      } else if (!problem || quietRetry) {
         app.append(el("div", { class: "callout quiet" }, [el("p", { text: "Nothing in stock at these five stores right now." })]));
       }
 
@@ -341,8 +439,9 @@
           } else {
             td.append(document.createTextNode("No reading"));
           }
-          if (cell.last_seen_display) {
-            td.append(el("span", { class: "seen", text: "Last in stock " + cell.last_seen_display }));
+          if (cell.last_seen_display || cell.last_seen) {
+            const clock = seenClock(cell);
+            td.append(el("span", { class: "seen", text: clock, "aria-label": "Last in stock " + clock }));
           } else if (label !== "In stock") {
             td.append(el("span", { class: "seen", text: "Not seen yet" }));
           }
@@ -401,6 +500,12 @@
     function updateAge() {
       const when = document.getElementById("when");
       if (!when || !latest) return;
+      const quiet = retryQuietly(latest);
+      if (quiet !== when.classList.contains("status-quiet")) {
+        render(latest);
+        return;
+      }
+      if (quiet) return;
       const problem = latest.problem;
       const iso = problem && problem.stale ? latest.last_success : latest.checked_at;
       when.classList.toggle("late", ageSeconds(iso) > 5 * 60);
