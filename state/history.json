@@ -1616,6 +1616,17 @@
       "store_id": "R342",
       "store": "Doncaster",
       "change": "in_stock"
+    },
+    {
+      "at": "2026-10-31T15:44:48+11:00",
+      "at_display": "Sat 31 Oct 2026, 3:44 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "change": "out_of_stock"
     }
   ]
 }
