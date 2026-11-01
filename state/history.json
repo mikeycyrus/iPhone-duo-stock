@@ -1759,6 +1759,17 @@
       "store_id": "R343",
       "store": "Southland",
       "change": "in_stock"
+    },
+    {
+      "at": "2026-11-01T11:23:23+11:00",
+      "at_display": "Sun 1 Nov 2026, 11:23 AM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "change": "out_of_stock"
     }
   ]
 }
