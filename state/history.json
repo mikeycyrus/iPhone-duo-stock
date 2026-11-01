@@ -1858,6 +1858,17 @@
       "store_id": "R504",
       "store": "Highpoint",
       "change": "in_stock"
+    },
+    {
+      "at": "2026-11-01T12:45:49+11:00",
+      "at_display": "Sun 1 Nov 2026, 12:45 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "out_of_stock"
     }
   ]
 }
