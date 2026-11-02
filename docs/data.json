@@ -1,14 +1,48 @@
 {
-  "checked_at": "2026-11-02T12:48:25+11:00",
-  "checked_at_display": "Mon 2 Nov 2026, 12:48 PM AEDT",
-  "last_success": "2026-11-02T12:48:25+11:00",
-  "last_success_display": "Mon 2 Nov 2026, 12:48 PM AEDT",
+  "checked_at": "2026-11-02T12:53:06+11:00",
+  "checked_at_display": "Mon 2 Nov 2026, 12:53 PM AEDT",
+  "last_success": "2026-11-02T12:53:06+11:00",
+  "last_success_display": "Mon 2 Nov 2026, 12:53 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
-  "any_in_stock": false,
-  "in_stock_count": 0,
-  "in_stock": [],
+  "any_in_stock": true,
+  "in_stock_count": 3,
+  "in_stock": [
+    {
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R180",
+      "store": "Chadstone",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    },
+    {
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    },
+    {
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R180",
+      "store": "Chadstone",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    }
+  ],
   "stores": [
     {
       "id": "R504",
@@ -52,11 +86,11 @@
           "last_seen_display": "12:26pm"
         },
         "R180": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-01T14:06:23+11:00",
-          "last_seen_display": "1 Nov 2:06pm"
+          "last_seen": "2026-11-02T12:53:06+11:00",
+          "last_seen_display": "12:53pm"
         },
         "R342": {
           "status": "unavailable",
@@ -66,11 +100,11 @@
           "last_seen_display": "1 Nov 1:35pm"
         },
         "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-01T11:37:53+11:00",
-          "last_seen_display": "1 Nov 11:37am"
+          "last_seen": "2026-11-02T12:53:06+11:00",
+          "last_seen_display": "12:53pm"
         },
         "R530": {
           "status": "unavailable",
@@ -96,11 +130,11 @@
           "last_seen_display": "1 Nov 1:59pm"
         },
         "R180": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-01T12:35:53+11:00",
-          "last_seen_display": "1 Nov 12:35pm"
+          "last_seen": "2026-11-02T12:53:06+11:00",
+          "last_seen_display": "12:53pm"
         },
         "R342": {
           "status": "unavailable",
@@ -113,8 +147,8 @@
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
-          "last_seen": "2026-11-01T11:22:23+11:00",
-          "last_seen_display": "1 Nov 11:22am"
+          "last_seen": "2026-11-02T12:51:07+11:00",
+          "last_seen_display": "12:51pm"
         },
         "R530": {
           "status": "unavailable",
@@ -127,6 +161,61 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-11-02T12:52:06+11:00",
+      "at_display": "Mon 2 Nov 2026, 12:52 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "change": "out_of_stock"
+    },
+    {
+      "at": "2026-11-02T12:50:06+11:00",
+      "at_display": "Mon 2 Nov 2026, 12:50 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-11-02T12:50:06+11:00",
+      "at_display": "Mon 2 Nov 2026, 12:50 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R180",
+      "store": "Chadstone",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-11-02T12:50:06+11:00",
+      "at_display": "Mon 2 Nov 2026, 12:50 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-11-02T12:50:06+11:00",
+      "at_display": "Mon 2 Nov 2026, 12:50 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R180",
+      "store": "Chadstone",
+      "change": "in_stock"
+    },
     {
       "at": "2026-11-02T12:45:25+11:00",
       "at_display": "Mon 2 Nov 2026, 12:45 PM AEDT",
@@ -196,61 +285,6 @@
     {
       "at": "2026-11-02T11:01:03+11:00",
       "at_display": "Mon 2 Nov 2026, 11:01 AM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R530",
-      "store": "Fountain Gate",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-02T11:01:03+11:00",
-      "at_display": "Mon 2 Nov 2026, 11:01 AM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R530",
-      "store": "Fountain Gate",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-01T19:14:54+11:00",
-      "at_display": "Sun 1 Nov 2026, 7:14 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R530",
-      "store": "Fountain Gate",
-      "change": "out_of_stock"
-    },
-    {
-      "at": "2026-11-01T19:00:38+11:00",
-      "at_display": "Sun 1 Nov 2026, 7:00 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R530",
-      "store": "Fountain Gate",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-01T14:42:00+11:00",
-      "at_display": "Sun 1 Nov 2026, 2:42 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R530",
-      "store": "Fountain Gate",
-      "change": "out_of_stock"
-    },
-    {
-      "at": "2026-11-01T14:40:01+11:00",
-      "at_display": "Sun 1 Nov 2026, 2:40 PM AEDT",
       "part": "MK2F4X/A",
       "name": "iPhone Duo 512GB Star White",
       "capacity": "512GB",
