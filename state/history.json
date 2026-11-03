@@ -3101,6 +3101,28 @@
       "store_id": "R343",
       "store": "Southland",
       "change": "out_of_stock"
+    },
+    {
+      "at": "2026-11-03T17:08:04+11:00",
+      "at_display": "Tue 3 Nov 2026, 5:08 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-11-03T17:08:04+11:00",
+      "at_display": "Tue 3 Nov 2026, 5:08 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "change": "in_stock"
     }
   ]
 }
