@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-04T23:59:01+11:00",
-  "checked_at_display": "Wed 4 Nov 2026, 11:59 PM AEDT",
-  "last_success": "2026-11-04T23:59:01+11:00",
-  "last_success_display": "Wed 4 Nov 2026, 11:59 PM AEDT",
+  "checked_at": "2026-11-05T00:03:42+11:00",
+  "checked_at_display": "Thu 5 Nov 2026, 12:03 AM AEDT",
+  "last_success": "2026-11-05T00:03:42+11:00",
+  "last_success_display": "Thu 5 Nov 2026, 12:03 AM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
@@ -49,35 +49,35 @@
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T20:21:27+11:00",
-          "last_seen_display": "8:21pm"
+          "last_seen_display": "4 Nov 8:21pm"
         },
         "R180": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T14:07:37+11:00",
-          "last_seen_display": "2:07pm"
+          "last_seen_display": "4 Nov 2:07pm"
         },
         "R342": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T19:15:43+11:00",
-          "last_seen_display": "7:15pm"
+          "last_seen_display": "4 Nov 7:15pm"
         },
         "R343": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T22:47:34+11:00",
-          "last_seen_display": "10:47pm"
+          "last_seen_display": "4 Nov 10:47pm"
         },
         "R530": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T15:30:09+11:00",
-          "last_seen_display": "3:30pm"
+          "last_seen_display": "4 Nov 3:30pm"
         }
       }
     },
@@ -93,35 +93,35 @@
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T18:30:42+11:00",
-          "last_seen_display": "6:30pm"
+          "last_seen_display": "4 Nov 6:30pm"
         },
         "R180": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T14:12:24+11:00",
-          "last_seen_display": "2:12pm"
+          "last_seen_display": "4 Nov 2:12pm"
         },
         "R342": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T18:11:38+11:00",
-          "last_seen_display": "6:11pm"
+          "last_seen_display": "4 Nov 6:11pm"
         },
         "R343": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T07:54:19+11:00",
-          "last_seen_display": "7:54am"
+          "last_seen_display": "4 Nov 7:54am"
         },
         "R530": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-04T14:40:12+11:00",
-          "last_seen_display": "2:40pm"
+          "last_seen_display": "4 Nov 2:40pm"
         }
       }
     }
