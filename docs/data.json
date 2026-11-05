@@ -1,14 +1,37 @@
 {
-  "checked_at": "2026-11-05T16:27:01+11:00",
-  "checked_at_display": "Thu 5 Nov 2026, 4:27 PM AEDT",
-  "last_success": "2026-11-05T16:27:01+11:00",
-  "last_success_display": "Thu 5 Nov 2026, 4:27 PM AEDT",
+  "checked_at": "2026-11-05T16:31:46+11:00",
+  "checked_at_display": "Thu 5 Nov 2026, 4:31 PM AEDT",
+  "last_success": "2026-11-05T16:31:46+11:00",
+  "last_success_display": "Thu 5 Nov 2026, 4:31 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
-  "any_in_stock": false,
-  "in_stock_count": 0,
-  "in_stock": [],
+  "any_in_stock": true,
+  "in_stock_count": 2,
+  "in_stock": [
+    {
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    },
+    {
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    }
+  ],
   "stores": [
     {
       "id": "R504",
@@ -59,11 +82,11 @@
           "last_seen_display": "1:10pm"
         },
         "R342": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-04T19:15:43+11:00",
-          "last_seen_display": "4 Nov 7:15pm"
+          "last_seen": "2026-11-05T16:31:46+11:00",
+          "last_seen_display": "4:31pm"
         },
         "R343": {
           "status": "unavailable",
@@ -103,11 +126,11 @@
           "last_seen_display": "12:59pm"
         },
         "R342": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-04T18:11:38+11:00",
-          "last_seen_display": "4 Nov 6:11pm"
+          "last_seen": "2026-11-05T16:31:46+11:00",
+          "last_seen_display": "4:31pm"
         },
         "R343": {
           "status": "unavailable",
@@ -127,6 +150,28 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-11-05T16:29:46+11:00",
+      "at_display": "Thu 5 Nov 2026, 4:29 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-11-05T16:29:46+11:00",
+      "at_display": "Thu 5 Nov 2026, 4:29 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "change": "in_stock"
+    },
     {
       "at": "2026-11-05T15:31:33+11:00",
       "at_display": "Thu 5 Nov 2026, 3:31 PM AEDT",
@@ -235,28 +280,6 @@
       "color": "Star White",
       "store_id": "R343",
       "store": "Southland",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-05T13:57:13+11:00",
-      "at_display": "Thu 5 Nov 2026, 1:57 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R504",
-      "store": "Highpoint",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-05T13:57:13+11:00",
-      "at_display": "Thu 5 Nov 2026, 1:57 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R504",
-      "store": "Highpoint",
       "change": "in_stock"
     }
   ],
