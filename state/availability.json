@@ -1,9 +1,9 @@
 {
-  "status_updated": "2026-11-05T19:13:05+11:00",
-  "last_success": "2026-11-05T19:13:05+11:00",
+  "status_updated": "2026-11-05T19:16:03+11:00",
+  "last_success": "2026-11-05T19:18:03+11:00",
   "statuses": {
     "MK2D4X/A": {
-      "R504": "available",
+      "R504": "unavailable",
       "R180": "unavailable",
       "R342": "unavailable",
       "R343": "unavailable",
@@ -19,7 +19,7 @@
   },
   "alerted": {
     "MK2D4X/A": {
-      "R504": "available",
+      "R504": "unavailable",
       "R180": "unavailable",
       "R342": "unavailable",
       "R343": "unavailable",
@@ -35,7 +35,7 @@
   },
   "last_seen": {
     "MK2D4X/A": {
-      "R504": "2026-11-05T19:13:05+11:00",
+      "R504": "2026-11-05T19:15:03+11:00",
       "R180": "2026-11-05T13:10:52+11:00",
       "R342": "2026-11-05T16:55:30+11:00",
       "R343": "2026-11-05T14:41:04+11:00",
