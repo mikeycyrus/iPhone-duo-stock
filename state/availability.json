@@ -1,36 +1,36 @@
 {
-  "status_updated": "2026-11-06T08:44:11+11:00",
-  "last_success": "2026-11-06T11:58:22+11:00",
+  "status_updated": "2026-11-06T12:03:10+11:00",
+  "last_success": "2026-11-06T12:03:10+11:00",
   "statuses": {
     "MK2D4X/A": {
-      "R504": "unavailable",
-      "R180": "unavailable",
-      "R342": "unavailable",
-      "R343": "unavailable",
-      "R530": "unavailable"
+      "R504": "ineligible",
+      "R180": "ineligible",
+      "R342": "ineligible",
+      "R343": "ineligible",
+      "R530": "ineligible"
     },
     "MK2F4X/A": {
-      "R504": "unavailable",
-      "R180": "unavailable",
-      "R342": "unavailable",
-      "R343": "unavailable",
-      "R530": "unavailable"
+      "R504": "ineligible",
+      "R180": "ineligible",
+      "R342": "ineligible",
+      "R343": "ineligible",
+      "R530": "ineligible"
     }
   },
   "alerted": {
     "MK2D4X/A": {
-      "R504": "unavailable",
-      "R180": "unavailable",
-      "R342": "unavailable",
-      "R343": "unavailable",
-      "R530": "unavailable"
+      "R504": "ineligible",
+      "R180": "ineligible",
+      "R342": "ineligible",
+      "R343": "ineligible",
+      "R530": "ineligible"
     },
     "MK2F4X/A": {
-      "R504": "unavailable",
-      "R180": "unavailable",
-      "R342": "unavailable",
-      "R343": "unavailable",
-      "R530": "unavailable"
+      "R504": "ineligible",
+      "R180": "ineligible",
+      "R342": "ineligible",
+      "R343": "ineligible",
+      "R530": "ineligible"
     }
   },
   "last_seen": {
