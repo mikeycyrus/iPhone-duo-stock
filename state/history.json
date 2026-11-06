@@ -4784,6 +4784,17 @@
       "store_id": "R180",
       "store": "Chadstone",
       "change": "in_stock"
+    },
+    {
+      "at": "2026-11-06T20:00:03+11:00",
+      "at_display": "Fri 6 Nov 2026, 8:00 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R180",
+      "store": "Chadstone",
+      "change": "out_of_stock"
     }
   ]
 }
