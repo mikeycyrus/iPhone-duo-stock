@@ -5224,6 +5224,17 @@
       "store_id": "R343",
       "store": "Southland",
       "change": "in_stock"
+    },
+    {
+      "at": "2026-11-08T12:13:09+11:00",
+      "at_display": "Sun 8 Nov 2026, 12:13 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "change": "out_of_stock"
     }
   ]
 }
