@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-08T11:09:22+11:00",
-  "checked_at_display": "Sun 8 Nov 2026, 11:09 AM AEDT",
-  "last_success": "2026-11-08T11:09:22+11:00",
-  "last_success_display": "Sun 8 Nov 2026, 11:09 AM AEDT",
+  "checked_at": "2026-11-08T11:14:06+11:00",
+  "checked_at_display": "Sun 8 Nov 2026, 11:14 AM AEDT",
+  "last_success": "2026-11-08T11:14:06+11:00",
+  "last_success_display": "Sun 8 Nov 2026, 11:14 AM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
@@ -14,8 +14,8 @@
       "name": "iPhone Duo 256GB Star White",
       "capacity": "256GB",
       "color": "Star White",
-      "store_id": "R180",
-      "store": "Chadstone",
+      "store_id": "R504",
+      "store": "Highpoint",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
       "text": "Available Today",
       "stale": false
@@ -68,18 +68,18 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
       "stores": {
         "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": "2026-11-07T10:05:11+11:00",
-          "last_seen_display": "7 Nov 10:05am"
-        },
-        "R180": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-08T11:09:22+11:00",
-          "last_seen_display": "11:09am"
+          "last_seen": "2026-11-08T11:14:06+11:00",
+          "last_seen_display": "11:14am"
+        },
+        "R180": {
+          "status": "unavailable",
+          "text": "Currently unavailable",
+          "stale": false,
+          "last_seen": "2026-11-08T11:10:08+11:00",
+          "last_seen_display": "11:10am"
         },
         "R342": {
           "status": "unavailable",
@@ -99,8 +99,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-08T11:09:22+11:00",
-          "last_seen_display": "11:09am"
+          "last_seen": "2026-11-08T11:14:06+11:00",
+          "last_seen_display": "11:14am"
         }
       }
     },
@@ -150,6 +150,28 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-11-08T11:11:07+11:00",
+      "at_display": "Sun 8 Nov 2026, 11:11 AM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R180",
+      "store": "Chadstone",
+      "change": "out_of_stock"
+    },
+    {
+      "at": "2026-11-08T11:11:07+11:00",
+      "at_display": "Sun 8 Nov 2026, 11:11 AM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "in_stock"
+    },
     {
       "at": "2026-11-08T10:49:31+11:00",
       "at_display": "Sun 8 Nov 2026, 10:49 AM AEDT",
@@ -259,28 +281,6 @@
       "store_id": "R342",
       "store": "Doncaster",
       "change": "out_of_stock"
-    },
-    {
-      "at": "2026-11-07T14:07:28+11:00",
-      "at_display": "Sat 7 Nov 2026, 2:07 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R342",
-      "store": "Doncaster",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-07T14:07:28+11:00",
-      "at_display": "Sat 7 Nov 2026, 2:07 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R342",
-      "store": "Doncaster",
-      "change": "in_stock"
     }
   ],
   "alerts": "on",
