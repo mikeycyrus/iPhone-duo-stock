@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-08T23:57:44+11:00",
-  "checked_at_display": "Sun 8 Nov 2026, 11:57 PM AEDT",
-  "last_success": "2026-11-08T23:57:44+11:00",
-  "last_success_display": "Sun 8 Nov 2026, 11:57 PM AEDT",
+  "checked_at": "2026-11-09T00:02:28+11:00",
+  "checked_at_display": "Mon 9 Nov 2026, 12:02 AM AEDT",
+  "last_success": "2026-11-09T00:02:28+11:00",
+  "last_success_display": "Mon 9 Nov 2026, 12:02 AM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
@@ -49,35 +49,35 @@
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-08T11:33:37+11:00",
-          "last_seen_display": "11:33am"
+          "last_seen_display": "8 Nov 11:33am"
         },
         "R180": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-08T18:44:35+11:00",
-          "last_seen_display": "6:44pm"
+          "last_seen_display": "8 Nov 6:44pm"
         },
         "R342": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-08T17:16:17+11:00",
-          "last_seen_display": "5:16pm"
+          "last_seen_display": "8 Nov 5:16pm"
         },
         "R343": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-08T12:12:09+11:00",
-          "last_seen_display": "12:12pm"
+          "last_seen_display": "8 Nov 12:12pm"
         },
         "R530": {
           "status": "unavailable",
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-08T11:32:56+11:00",
-          "last_seen_display": "11:32am"
+          "last_seen_display": "8 Nov 11:32am"
         }
       }
     },
@@ -100,7 +100,7 @@
           "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-08T10:30:38+11:00",
-          "last_seen_display": "10:30am"
+          "last_seen_display": "8 Nov 10:30am"
         },
         "R342": {
           "status": "unavailable",
