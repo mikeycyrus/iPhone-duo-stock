@@ -19,13 +19,15 @@ permissions:
   id-token: write
   actions: write
 
+# The checker waits its turn. A new run does not cancel one that is still saving.
+concurrency:
+  group: iphone-duo-stock
+  cancel-in-progress: false
+
 jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    concurrency:
-      group: iphone-duo-stock
-      cancel-in-progress: false
     env:
       NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
       GIT_BASELINE_FILE: /tmp/availability.git.json
@@ -118,7 +120,7 @@ jobs:
   # GITHUB_TOKEN cannot start a run with a normal push, but it can with
   # workflow_dispatch. That keeps the checks going when GitHub's scheduler does not.
   queue-next:
-    needs: check
+    needs: [check, deploy]
     if: ${{ always() && github.ref == 'refs/heads/main' && !cancelled() }}
     runs-on: ubuntu-latest
     steps:
