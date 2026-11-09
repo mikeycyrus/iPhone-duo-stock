@@ -1,12 +1,9 @@
-name: Check and publish
-description: Check pickup stock once, publish the page, then optionally wait so the next check is about a minute later.
+name: Check and save
+description: Check pickup stock once, commit the snapshot, then optionally wait so the next check is about a minute later.
 
 inputs:
-  artifact:
-    description: Pages artifact name for this check
-    required: true
   pause:
-    description: Wait after publishing so checks stay about a minute apart
+    description: Wait after saving so checks stay about a minute apart
     required: true
     default: "true"
 
@@ -17,17 +14,20 @@ runs:
       shell: bash
       run: python3 check.py --once
 
-    - name: Upload the webpage
-      uses: actions/upload-pages-artifact@v4
-      with:
-        path: docs
-        name: ${{ inputs.artifact }}
-
-    - name: Publish the webpage
-      continue-on-error: true
-      uses: actions/deploy-pages@v4
-      with:
-        artifact_name: ${{ inputs.artifact }}
+    - name: Save this check
+      shell: bash
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add state/availability.json state/history.json docs/data.json
+        if git diff --cached --quiet; then
+          echo "Nothing new to commit."
+        else
+          git commit -m "Update pickup stock snapshot"
+          if ! git push; then
+            echo "::warning title=Could not save stock history::This check could not be pushed. The next check will try again. In the repo, open Settings, then Actions, then General, then Workflow permissions, and choose Read and write permissions."
+          fi
+        fi
 
     - name: Wait for the next minute
       if: inputs.pause == 'true'
