@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-11-11T14:41:05+11:00",
+  "checked_at": "2026-11-11T14:41:40+11:00",
   "checked_at_display": "Wed 11 Nov 2026, 2:41 PM AEDT",
-  "last_success": "2026-11-11T14:41:05+11:00",
+  "last_success": "2026-11-11T14:41:40+11:00",
   "last_success_display": "Wed 11 Nov 2026, 2:41 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
@@ -60,7 +60,7 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-11T14:41:05+11:00",
+          "last_seen": "2026-11-11T14:41:40+11:00",
           "last_seen_display": "2:41pm"
         },
         "R180": {
