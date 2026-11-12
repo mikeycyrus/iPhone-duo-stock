@@ -1,17 +1,6 @@
 {
   "events": [
     {
-      "at": "2026-11-01T11:19:39+11:00",
-      "at_display": "Sun 1 Nov 2026, 11:19 AM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R343",
-      "store": "Southland",
-      "change": "in_stock"
-    },
-    {
       "at": "2026-11-01T11:23:23+11:00",
       "at_display": "Sun 1 Nov 2026, 11:23 AM AEDT",
       "part": "MK2F4X/A",
@@ -5498,6 +5487,17 @@
       "color": "Star White",
       "store_id": "R343",
       "store": "Southland",
+      "change": "out_of_stock"
+    },
+    {
+      "at": "2026-11-12T15:34:06+11:00",
+      "at_display": "Thu 12 Nov 2026, 3:34 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
       "change": "out_of_stock"
     }
   ]
