@@ -1,25 +1,14 @@
 {
-  "checked_at": "2026-11-12T16:13:42+11:00",
-  "checked_at_display": "Thu 12 Nov 2026, 4:13 PM AEDT",
-  "last_success": "2026-11-12T16:13:42+11:00",
-  "last_success_display": "Thu 12 Nov 2026, 4:13 PM AEDT",
+  "checked_at": "2026-11-12T16:14:42+11:00",
+  "checked_at_display": "Thu 12 Nov 2026, 4:14 PM AEDT",
+  "last_success": "2026-11-12T16:14:42+11:00",
+  "last_success_display": "Thu 12 Nov 2026, 4:14 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
   "any_in_stock": true,
-  "in_stock_count": 6,
+  "in_stock_count": 5,
   "in_stock": [
-    {
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R342",
-      "store": "Doncaster",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
-      "text": "Available Today",
-      "stale": false
-    },
     {
       "part": "MK2D4X/A",
       "name": "iPhone Duo 256GB Star White",
@@ -126,8 +115,8 @@
           "last_seen_display": "12:58pm"
         },
         "R342": {
-          "status": "available",
-          "text": "Available Today",
+          "status": "unavailable",
+          "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-12T16:13:42+11:00",
           "last_seen_display": "4:13pm"
@@ -136,15 +125,15 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:13:42+11:00",
-          "last_seen_display": "4:13pm"
+          "last_seen": "2026-11-12T16:14:42+11:00",
+          "last_seen_display": "4:14pm"
         },
         "R530": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:13:42+11:00",
-          "last_seen_display": "4:13pm"
+          "last_seen": "2026-11-12T16:14:42+11:00",
+          "last_seen_display": "4:14pm"
         }
       }
     },
@@ -173,27 +162,38 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:13:42+11:00",
-          "last_seen_display": "4:13pm"
+          "last_seen": "2026-11-12T16:14:42+11:00",
+          "last_seen_display": "4:14pm"
         },
         "R343": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:13:42+11:00",
-          "last_seen_display": "4:13pm"
+          "last_seen": "2026-11-12T16:14:42+11:00",
+          "last_seen_display": "4:14pm"
         },
         "R530": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:13:42+11:00",
-          "last_seen_display": "4:13pm"
+          "last_seen": "2026-11-12T16:14:42+11:00",
+          "last_seen_display": "4:14pm"
         }
       }
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-11-12T16:14:42+11:00",
+      "at_display": "Thu 12 Nov 2026, 4:14 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R342",
+      "store": "Doncaster",
+      "change": "out_of_stock"
+    },
     {
       "at": "2026-11-12T16:08:09+11:00",
       "at_display": "Thu 12 Nov 2026, 4:08 PM AEDT",
@@ -310,17 +310,6 @@
       "part": "MK2F4X/A",
       "name": "iPhone Duo 512GB Star White",
       "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R343",
-      "store": "Southland",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-12T15:03:15+11:00",
-      "at_display": "Thu 12 Nov 2026, 3:03 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
       "color": "Star White",
       "store_id": "R343",
       "store": "Southland",
