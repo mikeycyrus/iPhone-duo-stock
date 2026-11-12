@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-11-12T16:51:20+11:00",
+  "checked_at": "2026-11-12T16:51:53+11:00",
   "checked_at_display": "Thu 12 Nov 2026, 4:51 PM AEDT",
-  "last_success": "2026-11-12T16:51:20+11:00",
+  "last_success": "2026-11-12T16:51:53+11:00",
   "last_success_display": "Thu 12 Nov 2026, 4:51 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
@@ -129,14 +129,14 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:51:20+11:00",
+          "last_seen": "2026-11-12T16:51:53+11:00",
           "last_seen_display": "4:51pm"
         },
         "R343": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:51:20+11:00",
+          "last_seen": "2026-11-12T16:51:53+11:00",
           "last_seen_display": "4:51pm"
         },
         "R530": {
@@ -159,7 +159,7 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:51:20+11:00",
+          "last_seen": "2026-11-12T16:51:53+11:00",
           "last_seen_display": "4:51pm"
         },
         "R180": {
@@ -173,21 +173,21 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:51:20+11:00",
+          "last_seen": "2026-11-12T16:51:53+11:00",
           "last_seen_display": "4:51pm"
         },
         "R343": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:51:20+11:00",
+          "last_seen": "2026-11-12T16:51:53+11:00",
           "last_seen_display": "4:51pm"
         },
         "R530": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-12T16:51:20+11:00",
+          "last_seen": "2026-11-12T16:51:53+11:00",
           "last_seen_display": "4:51pm"
         }
       }
