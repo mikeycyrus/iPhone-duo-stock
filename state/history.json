@@ -1,28 +1,6 @@
 {
   "events": [
     {
-      "at": "2026-10-31T15:42:05+11:00",
-      "at_display": "Sat 31 Oct 2026, 3:42 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R342",
-      "store": "Doncaster",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-10-31T15:44:48+11:00",
-      "at_display": "Sat 31 Oct 2026, 3:44 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R342",
-      "store": "Doncaster",
-      "change": "out_of_stock"
-    },
-    {
       "at": "2026-10-31T16:26:42+11:00",
       "at_display": "Sat 31 Oct 2026, 4:26 PM AEDT",
       "part": "MK2F4X/A",
@@ -5499,6 +5477,28 @@
       "store_id": "R530",
       "store": "Fountain Gate",
       "change": "in_stock"
+    },
+    {
+      "at": "2026-11-12T14:10:12+11:00",
+      "at_display": "Thu 12 Nov 2026, 2:10 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-11-12T14:10:12+11:00",
+      "at_display": "Thu 12 Nov 2026, 2:10 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
+      "change": "out_of_stock"
     }
   ]
 }
