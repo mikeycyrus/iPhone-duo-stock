@@ -22,24 +22,18 @@ Adelaide:
 
 - Rundle Place
 
-And these models:
+The page shows these models:
 
 - iPhone Duo 256GB Star White
-- iPhone Duo 256GB Night Sky
 - iPhone Duo 512GB Star White
-- iPhone Duo 512GB Night Sky
-- iPhone Duo 1TB Star White
-- iPhone Duo 1TB Night Sky
-- iPhone Duo 2TB Star White
-- iPhone Duo 2TB Night Sky
 
-Each square also shows the last time that model was seen in stock at that store. Under the grid, Recent changes lists when something came into stock or sold out.
+Each square also shows the last time that model was seen in stock at that store. Under the grid, Recent changes lists when one of those two came into stock or sold out. The other six models are still checked and saved, but they are not shown on the page.
 
 You do not need to install anything, pay anything, or leave a computer on. GitHub runs the check for free.
 
 ## Phone alerts
 
-You can get one notification on your phone when 256GB Star White or 512GB Star White comes into stock at one of these stores, including Rundle Place. The page still shows all eight models. You will not get another alert for the same phone while it stays in stock. If it sells out and comes back later, you get a new alert. Other models do not send a phone alert.
+You can get one notification on your phone when 256GB Star White or 512GB Star White comes into stock at one of these stores, including Rundle Place. You will not get another alert for the same phone while it stays in stock. If it sells out and comes back later, you get a new alert. Other models do not send a phone alert, and they are not listed on the page.
 
 1. Install the free **ntfy** app on your iPhone: [ntfy.sh](https://ntfy.sh).
 2. In the app, subscribe to a topic. Make the name long and random, like a password. Anyone who knows the name can see the alerts.
@@ -96,7 +90,7 @@ If a check says it could not save stock history:
 
 The checker is `check.py`. It uses only Python’s standard library. It asks Apple’s public pickup page for postcode 3000 (Melbourne) and postcode 5000 (Adelaide). Melbourne stores: Highpoint `R504`, Chadstone `R180`, Doncaster `R342`, Southland `R343`, Fountain Gate `R530`. Adelaide stores: Rundle Place `R405`. Apple’s store list and the postcode 5000 pickup reply both name Rundle Place as the only South Australia store.
 
-The page checks all eight models. Phone alerts are only for `MK2D4X/A` and `MK2F4X/A`, listed in `ALERT_PARTS` at the top of `check.py`. To stop showing a model on the page, remove its part number from `WATCHED_PARTS`. All eight are checked:
+The page and phone alerts use `ALERT_PARTS` at the top of `check.py`: `MK2D4X/A` (256GB Star White) and `MK2F4X/A` (512GB Star White). The checker still asks Apple about all eight models and keeps them in `state/availability.json` and `state/history.json`. To stop checking a model, remove its part number from `WATCHED_PARTS`. All eight are checked:
 
 - `MK2D4X/A` 256GB Star White
 - `MK2E4X/A` 256GB Night Sky

@@ -117,7 +117,7 @@ if _unknown_parts:
 
 PARTS = [item for item in CATALOG if item[0] in WATCHED_PARTS]
 
-# Phone alerts only. The page, history, and saved stock still use WATCHED_PARTS.
+# Phone alerts and the public page. Saved stock and history.json still use WATCHED_PARTS.
 ALERT_PARTS = (
     "MK2D4X/A",  # 256GB Star White
     "MK2F4X/A",  # 512GB Star White
@@ -945,6 +945,45 @@ def _problem_banner(
     return {"kind": "blocked" if blocked else "error", "text": text, "stale": False}
 
 
+def _visible_names() -> set[str]:
+    return {model_name(part) for part in ALERT_PARTS}
+
+
+def hide_unlisted_models(text: str) -> str:
+    """Drop hidden models from the public problem line. Keep the rest of the sentence."""
+    marker = " Not updated: "
+    if marker not in text:
+        return text
+    head, rest = text.split(marker, 1)
+    list_part, sep, after = rest.partition(".")
+    shown = [name.strip() for name in list_part.split(",") if name.strip() in _visible_names()]
+    if shown:
+        return head + marker + ", ".join(shown) + sep + after
+    follow = after.lstrip() if sep else ""
+    if follow:
+        return f"{head} {follow}"
+    return head
+
+
+def page_data(data: dict, events: list[dict]) -> dict:
+    """What the webpage shows. State files keep every watched model."""
+    shown_models = [model for model in data.get("models") or [] if model.get("part") in ALERT_PART_IDS]
+    shown_stock = [item for item in data.get("in_stock") or [] if item.get("part") in ALERT_PART_IDS]
+    shown_events = [event for event in events if isinstance(event, dict) and event.get("part") in ALERT_PART_IDS]
+    page = dict(data)
+    page["models"] = shown_models
+    page["in_stock"] = shown_stock
+    page["in_stock_count"] = len(shown_stock)
+    page["any_in_stock"] = bool(shown_stock)
+    page["recent_history"] = list(reversed(shown_events[-RECENT_LIMIT:]))
+    problem = page.get("problem")
+    if isinstance(problem, dict) and isinstance(problem.get("text"), str):
+        updated = dict(problem)
+        updated["text"] = hide_unlisted_models(problem["text"])
+        page["problem"] = updated
+    return page
+
+
 def hold_alerted(previous: dict | None, baseline: dict, arrivals: list[dict]) -> dict:
     """Remember real stock, but keep unsent alerts pending for the next check."""
     alerted = ordered_statuses(baseline.get("alerted") or baseline.get("statuses"))
@@ -1178,7 +1217,7 @@ def run() -> None:
     data = built["data"]
     data["recent_history"] = list(reversed(events[-RECENT_LIMIT:]))
     data.update(alert_fields(topic_raw, send_result))
-    write_json(DATA_PATH, data)
+    write_json(DATA_PATH, page_data(data, events))
     write_json(HISTORY_PATH, {"events": events})
 
     if save_baseline and built["baseline"].get("last_success"):
