@@ -63,6 +63,8 @@ class LogicTests(unittest.TestCase):
         observations = _observations("unavailable")
         observations["MK2F4X/A"]["R180"] = _store("available", "Available today at Apple Chadstone")
         observations["MK2D4X/A"]["R504"] = _store("available", "Available today")
+        observations["MK2E4X/A"]["R530"] = _store("available", "Available today")
+        observations["MK2H4X/A"]["R405"] = _store("available", "Available Tomorrow")
         # Ongoing stock must not alert again.
         previous["statuses"]["MK2D4X/A"]["R504"] = "available"
         previous["alerted"] = {
@@ -73,6 +75,9 @@ class LogicTests(unittest.TestCase):
             [(item["part"], item["store_id"]) for item in built["arrivals"]],
             [("MK2F4X/A", "R180")],
         )
+        self.assertTrue(any(item["part"] == "MK2E4X/A" and item["store_id"] == "R530" for item in built["data"]["in_stock"]))
+        self.assertTrue(any(item["part"] == "MK2H4X/A" and item["store_id"] == "R405" for item in built["data"]["in_stock"]))
+        self.assertEqual(built["baseline"]["statuses"]["MK2H4X/A"]["R405"], "available")
 
     def test_missing_previous_cell_can_alert_after_baseline_exists(self):
         previous = _baseline("unavailable")
@@ -406,10 +411,14 @@ class LogicTests(unittest.TestCase):
             del previous["statuses"][part]["R405"]
         observations = _observations("unavailable")
         observations["MK2H4X/A"]["R405"] = _store("available", "Available Tomorrow")
+        observations["MK2D4X/A"]["R405"] = _store("available", "Available today")
+        observations["MK2L4X/A"]["R504"] = _store("available", "Available Tomorrow")
         previous["alerted"] = {part: dict(stores) for part, stores in previous["statuses"].items()}
         built = check.build_result(previous, observations, [], NOW)
         arrivals = [(item["part"], item["store_id"], item["city"]) for item in built["arrivals"]]
-        self.assertEqual(arrivals, [("MK2H4X/A", "R405", "Adelaide")])
+        self.assertEqual(arrivals, [("MK2D4X/A", "R405", "Adelaide")])
+        self.assertTrue(any(item["part"] == "MK2H4X/A" and item["store"] == "Rundle Place" for item in built["data"]["in_stock"]))
+        self.assertTrue(any(event["part"] == "MK2L4X/A" and event["store_id"] == "R504" and event["change"] == "in_stock" for event in built["transitions"]))
         self.assertEqual(built["data"]["stores"][-1], {
             "id": "R405",
             "name": "Rundle Place",
@@ -498,6 +507,7 @@ class LogicTests(unittest.TestCase):
         )
         self.assertEqual([part for part, _, _, _ in check.PARTS], catalog)
         self.assertEqual(check.WATCHED_PARTS, tuple(catalog))
+        self.assertEqual(check.ALERT_PARTS, ("MK2D4X/A", "MK2F4X/A"))
         self.assertEqual(
             [store_id for store_id, _, _ in check.STORES],
             ["R504", "R180", "R342", "R343", "R530", "R405"],

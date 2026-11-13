@@ -39,7 +39,7 @@ You do not need to install anything, pay anything, or leave a computer on. GitHu
 
 ## Phone alerts
 
-You can get one notification on your phone when a model comes into stock at one of these stores. You will not get another one for the same phone while it stays in stock. If it sells out and comes back later, you get a new alert.
+You can get one notification on your phone when 256GB Star White or 512GB Star White comes into stock at one of these stores, including Rundle Place. The page still shows all eight models. You will not get another alert for the same phone while it stays in stock. If it sells out and comes back later, you get a new alert. Other models do not send a phone alert.
 
 1. Install the free **ntfy** app on your iPhone: [ntfy.sh](https://ntfy.sh).
 2. In the app, subscribe to a topic. Make the name long and random, like a password. Anyone who knows the name can see the alerts.
@@ -50,7 +50,7 @@ You can get one notification on your phone when a model comes into stock at one 
    - Secret: the topic name only, or the full `https://ntfy.sh/your-topic` link.
    - Save.
 
-The next check will start sending alerts. If something is already in stock when you add the secret, you get one alert for it on the following check, as long as it is still available. After that, an alert is sent only when a model comes into stock. You will not get a repeat while it stays in stock. Until the secret exists, the page still works and says phone alerts are not set up.
+The next check will start sending alerts. If 256GB Star White or 512GB Star White is already in stock when you add the secret, you get one alert for it on the following check, as long as it is still available. After that, an alert is sent only when one of those two models comes into stock. You will not get a repeat while it stays in stock. Until the secret exists, the page still works and says phone alerts are not set up.
 
 Tapping an alert opens Apple’s buy page for that model, or the stock page if several arrived at once.
 
@@ -96,7 +96,7 @@ If a check says it could not save stock history:
 
 The checker is `check.py`. It uses only Python’s standard library. It asks Apple’s public pickup page for postcode 3000 (Melbourne) and postcode 5000 (Adelaide). Melbourne stores: Highpoint `R504`, Chadstone `R180`, Doncaster `R342`, Southland `R343`, Fountain Gate `R530`. Adelaide stores: Rundle Place `R405`. Apple’s store list and the postcode 5000 pickup reply both name Rundle Place as the only South Australia store.
 
-To stop watching a model, remove its part number from `WATCHED_PARTS` at the top of `check.py`. All eight are watched:
+The page checks all eight models. Phone alerts are only for `MK2D4X/A` and `MK2F4X/A`, listed in `ALERT_PARTS` at the top of `check.py`. To stop showing a model on the page, remove its part number from `WATCHED_PARTS`. All eight are checked:
 
 - `MK2D4X/A` 256GB Star White
 - `MK2E4X/A` 256GB Night Sky
