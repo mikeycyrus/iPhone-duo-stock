@@ -79,8 +79,8 @@ class LogicTests(unittest.TestCase):
         del previous["statuses"]["MK2F4X/A"]
         observations = {"MK2F4X/A": _all("available")}
         built = check.build_result(previous, observations, [], NOW)
-        self.assertEqual(len(built["arrivals"]), 5)
-        self.assertEqual(len(built["transitions"]), 5)
+        self.assertEqual(len(built["arrivals"]), len(check.STORES))
+        self.assertEqual(len(built["transitions"]), len(check.STORES))
         self.assertTrue(all(event["change"] == "in_stock" for event in built["transitions"]))
 
     def test_unsent_arrival_stays_pending_without_rewriting_history(self):
@@ -354,41 +354,132 @@ class LogicTests(unittest.TestCase):
             def __exit__(self, *args):
                 return False
 
-        with patch("urllib.request.urlopen", side_effect=[self._http_error(541), FakeResponse(self._pickup_body())]) as opened, patch(
-            "time.sleep"
-        ) as slept, patch("random.randint", return_value=7) as wait:
+        with patch(
+            "urllib.request.urlopen",
+            side_effect=[self._http_error(541), FakeResponse(self._pickup_body()), FakeResponse(self._pickup_body())],
+        ) as opened, patch("time.sleep") as slept, patch("random.randint", return_value=7) as wait:
             result = check.fetch_part("MK2D4X/A")
         self.assertTrue(result["ok"])
-        self.assertEqual(opened.call_count, 2)
+        self.assertNotIn("R999", result["stores"])
+        self.assertIn("R405", result["stores"])
+        self.assertEqual(opened.call_count, 3)
+        urls = [call.args[0].full_url for call in opened.call_args_list]
+        self.assertIn("location=3000", urls[0])
+        self.assertIn("location=3000", urls[1])
+        self.assertIn("location=5000", urls[2])
         wait.assert_called_once_with(5, 10)
-        slept.assert_called_once_with(7)
+        self.assertEqual(slept.call_args_list[0].args[0], 7)
+        self.assertEqual(slept.call_args_list[1].args[0], check.REQUEST_PAUSE_SECONDS)
 
     def test_http_541_is_recorded_when_the_retry_fails(self):
-        with patch("urllib.request.urlopen", side_effect=[self._http_error(541), self._http_error(541)]) as opened, patch(
+        with patch("urllib.request.urlopen", side_effect=[self._http_error(541)] * 4) as opened, patch(
             "time.sleep"
         ) as slept, patch("random.randint", return_value=9):
             result = check.fetch_part("MK2D4X/A")
         self.assertFalse(result["ok"])
         self.assertEqual(result["status"], 541)
         self.assertIn("HTTP 541", result["message"])
-        self.assertEqual(opened.call_count, 2)
-        slept.assert_called_once_with(9)
+        self.assertEqual(opened.call_count, 4)
+        self.assertEqual([call.args[0] for call in slept.call_args_list], [9, check.REQUEST_PAUSE_SECONDS, 9])
 
     def test_other_failures_keep_their_existing_retry(self):
         waits = [check._retry_wait(541) for _ in range(30)]
         self.assertTrue(all(5 <= wait <= 10 for wait in waits))
         self.assertIsNone(check._retry_wait(403))
         self.assertEqual(check._retry_wait(429), 1.5)
-        with patch("urllib.request.urlopen", side_effect=[self._http_error(403)]) as opened, patch("time.sleep") as slept:
+        with patch("urllib.request.urlopen", side_effect=[self._http_error(403), self._http_error(403)]) as opened, patch(
+            "time.sleep"
+        ) as slept:
             result = check.fetch_part("MK2D4X/A")
         self.assertEqual(result["status"], 403)
-        self.assertEqual(opened.call_count, 1)
-        slept.assert_not_called()
+        self.assertEqual(opened.call_count, 2)
+        slept.assert_called_once_with(check.REQUEST_PAUSE_SECONDS)
 
     def test_fulfillment_endpoint_is_not_used(self):
         source = (check.ROOT / "check.py").read_text(encoding="utf-8")
         self.assertNotRegex(source, r"https://\S*fulfillment-messages")
         self.assertIn("/shop/retail/pickup-message", source)
+
+    def test_adelaide_restock_alerts_on_the_same_channel_rules(self):
+        previous = _baseline("unavailable")
+        for part, _, _, _ in check.PARTS:
+            del previous["statuses"][part]["R405"]
+        observations = _observations("unavailable")
+        observations["MK2H4X/A"]["R405"] = _store("available", "Available Tomorrow")
+        previous["alerted"] = {part: dict(stores) for part, stores in previous["statuses"].items()}
+        built = check.build_result(previous, observations, [], NOW)
+        arrivals = [(item["part"], item["store_id"], item["city"]) for item in built["arrivals"]]
+        self.assertEqual(arrivals, [("MK2H4X/A", "R405", "Adelaide")])
+        self.assertEqual(built["data"]["stores"][-1], {
+            "id": "R405",
+            "name": "Rundle Place",
+            "url": "https://www.apple.com/au/retail/rundleplace/",
+            "city": "Adelaide",
+        })
+        self.assertIn("postcode 3000", built["data"]["location"])
+        self.assertIn("Adelaide pickup near postcode 5000", built["data"]["location"])
+        title, body, _click, _actions = check.format_notification(
+            built["arrivals"], "https://mikeycyrus.github.io/iphone-duo-stock/"
+        )
+        self.assertIn("Rundle Place", title)
+        self.assertIn("Adelaide", body)
+        self.assertIn("https://mikeycyrus.github.io/iphone-duo-stock/", body)
+
+    def test_one_city_can_fail_without_wiping_the_other(self):
+        previous = _baseline("unavailable")
+        observations = {
+            "MK2D4X/A": {
+                store_id: _store("unavailable")
+                for store_id, _, _ in check.STORES
+                if check.STORE_CITY[store_id] == "Melbourne"
+            }
+        }
+        errors = [
+            {
+                "part": "MK2D4X/A",
+                "partial": True,
+                "blocked": True,
+                "status": 403,
+                "place": "Adelaide",
+                "message": check.plain_http_message(403, True),
+            }
+        ]
+        built = check.build_result(previous, observations, errors, NOW)
+        cells = next(model for model in built["data"]["models"] if model["part"] == "MK2D4X/A")["stores"]
+        self.assertFalse(cells["R504"]["stale"])
+        self.assertEqual(cells["R504"]["status"], "unavailable")
+        self.assertTrue(cells["R405"]["stale"])
+        self.assertEqual(cells["R405"]["status"], "unavailable")
+        self.assertIn("Not updated in Adelaide", built["data"]["problem"]["text"])
+        self.assertNotIn("Not updated: iPhone Duo", built["data"]["problem"]["text"])
+
+    def test_each_city_must_be_in_its_own_reply(self):
+        payload = {
+            "head": {"status": "200"},
+            "body": {
+                "stores": [
+                    {
+                        "storeNumber": store_id,
+                        "partsAvailability": {
+                            "MK2D4X/A": {
+                                "pickupDisplay": "unavailable",
+                                "pickupSearchQuote": "Currently unavailable",
+                            }
+                        },
+                    }
+                    for store_id, _, _ in check.STORES
+                    if check.STORE_CITY[store_id] == "Melbourne"
+                ]
+            },
+        }
+        raw = json.dumps(payload).encode()
+        melbourne_ids = {store_id for store_id, _, _ in check.STORES if check.STORE_CITY[store_id] == "Melbourne"}
+        melbourne = check.interpret_response(200, raw, "MK2D4X/A", melbourne_ids, "Melbourne")
+        self.assertTrue(melbourne["ok"])
+        self.assertNotIn("R405", melbourne["stores"])
+        adelaide = check.interpret_response(200, raw, "MK2D4X/A", {"R405"}, "Adelaide")
+        self.assertFalse(adelaide["ok"])
+        self.assertIn("did not include the Adelaide stores", adelaide["message"])
 
     def test_part_and_store_order(self):
         catalog = [part for part, _, _, _ in check.CATALOG]
@@ -405,9 +496,18 @@ class LogicTests(unittest.TestCase):
                 "MK2L4X/A",
             ],
         )
-        self.assertEqual([part for part, _, _, _ in check.PARTS], ["MK2D4X/A", "MK2F4X/A"])
-        self.assertEqual(check.WATCHED_PARTS, ("MK2D4X/A", "MK2F4X/A"))
-        self.assertEqual([store_id for store_id, _, _ in check.STORES], ["R504", "R180", "R342", "R343", "R530"])
+        self.assertEqual([part for part, _, _, _ in check.PARTS], catalog)
+        self.assertEqual(check.WATCHED_PARTS, tuple(catalog))
+        self.assertEqual(
+            [store_id for store_id, _, _ in check.STORES],
+            ["R504", "R180", "R342", "R343", "R530", "R405"],
+        )
+        self.assertEqual([postcode for postcode, _place, _stores in check.REGIONS], ["3000", "5000"])
+        self.assertEqual(
+            [check.STORE_CITY[store_id] for store_id, _, _ in check.STORES],
+            ["Melbourne", "Melbourne", "Melbourne", "Melbourne", "Melbourne", "Adelaide"],
+        )
+        self.assertEqual(check.STORES[-1], ("R405", "Rundle Place", "https://www.apple.com/au/retail/rundleplace/"))
         colors = [color for _, _, color, _ in check.CATALOG]
         self.assertEqual(colors[0::2], ["Star White", "Star White", "Star White", "Star White"])
         self.assertEqual(colors[1::2], ["Night Sky", "Night Sky", "Night Sky", "Night Sky"])

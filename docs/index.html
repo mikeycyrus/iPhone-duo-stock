@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f3efe6">
-  <title>iPhone Duo pickup — Melbourne</title>
-  <meta name="description" content="Pickup stock for iPhone Duo at five Melbourne Apple Stores: Highpoint, Chadstone, Doncaster, Southland, and Fountain Gate.">
+  <title>iPhone Duo pickup — Melbourne and Adelaide</title>
+  <meta name="description" content="Pickup stock for iPhone Duo at Apple Stores in Melbourne and Adelaide, including Rundle Place.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f6b3a'/%3E%3Cpath d='M8 16.5h16M16 8.5v16' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
   <style>
     :root {
@@ -134,6 +134,14 @@
       position: sticky;
       left: 0;
     }
+    h2.city {
+      margin: 16px 8px 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .card > h2.city:first-child { margin-top: 4px; }
     td.model .color { display: block; font-weight: 650; }
     td.model .part { display: block; color: var(--muted); font-size: 0.75rem; font-weight: 500; }
     td.in { background: var(--good-bg); }
@@ -168,6 +176,8 @@
       th, td { padding: 4px 1px; }
       th { font-size: 0.625rem; }
       th.model, td.model, tr.group th { position: static; box-shadow: none; }
+      table.few .name-full { display: inline; }
+      table.few .name-short { display: none; }
       td.model .color { font-size: 0.75rem; line-height: 1.15; overflow-wrap: normal; }
       td.model .part { font-size: 0.625rem; overflow-wrap: normal; }
       td.in a { padding: 1px 0; font-size: 0.6875rem; }
@@ -194,7 +204,7 @@
 <body>
   <header>
     <h1>iPhone Duo pickup</h1>
-    <p class="sub">Five Melbourne Apple Stores.</p>
+    <p class="sub">Melbourne and Adelaide Apple Stores.</p>
     <div class="toolbar">
       <a class="buy" id="buy" href="https://www.apple.com/au/shop/buy-iphone/iphone-duo">Buy on Apple</a>
       <button type="button" id="refresh">Refresh</button>
@@ -204,7 +214,7 @@
     <p class="loading">Loading the latest check…</p>
   </main>
   <footer>
-    <p>Highpoint, Chadstone, Doncaster, Southland, and Fountain Gate. Stock is checked about once a minute. This page looks for a new result every minute. Times are Melbourne time.</p>
+    <p>Melbourne: Highpoint, Chadstone, Doncaster, Southland, and Fountain Gate. Adelaide: Rundle Place. Stock is checked about once a minute. This page looks for a new result every minute. Times are Melbourne time.</p>
     <p><a href="https://github.com/mikeycyrus/iphone-duo-stock#phone-alerts">How phone alerts work</a></p>
   </footer>
   <script>
@@ -333,14 +343,97 @@
       return value.startsWith("available") && !value.startsWith("unavailable");
     }
 
+    function storeGroups(stores) {
+      const groups = [];
+      stores.forEach((store) => {
+        const city = store.city || "";
+        const last = groups[groups.length - 1];
+        if (last && last.city === city) last.stores.push(store);
+        else groups.push({ city: city, stores: [store] });
+      });
+      return groups;
+    }
+
+    function emptyStockText(data) {
+      const cities = [];
+      (data.stores || []).forEach((store) => {
+        if (store.city && cities.indexOf(store.city) === -1) cities.push(store.city);
+      });
+      if (cities.length > 1) return "Nothing in stock at the " + cities.join(" or ") + " stores right now.";
+      return "Nothing in stock at these stores right now.";
+    }
+
     function shortStoreName(name) {
       return {
         Highpoint: "Highpt",
         Chadstone: "Chad",
         Doncaster: "Donc",
         Southland: "South",
-        "Fountain Gate": "F.Gate"
+        "Fountain Gate": "F.Gate",
+        "Rundle Place": "Rundle"
       }[name] || name;
+    }
+
+    function stockTable(data, stores) {
+      const table = el("table", stores.length < 4 ? { class: "few" } : {});
+      const place = stores[0] && stores[0].city ? stores[0].city + " " : "";
+      table.append(el("caption", { class: "visually-hidden", text: place + "iPhone Duo pickup by model and store" }));
+      const cols = el("colgroup", {}, [el("col", { class: "model-col" })]);
+      stores.forEach(() => cols.append(el("col")));
+      table.append(cols);
+      const head = el("tr", {}, [el("th", { class: "model", scope: "col", text: "Model" })]);
+      stores.forEach((store) => {
+        const link = el("a", { href: store.url, "aria-label": store.city ? store.name + ", " + store.city : store.name });
+        link.append(
+          el("span", { class: "name-full", "aria-hidden": "true", text: store.name }),
+          el("span", { class: "name-short", "aria-hidden": "true", text: shortStoreName(store.name) })
+        );
+        head.append(el("th", { class: "store", scope: "col" }, [link]));
+      });
+      table.append(el("thead", {}, [head]));
+      const body = el("tbody");
+      let capacity = "";
+      (data.models || []).forEach((model) => {
+        if (model.capacity !== capacity) {
+          capacity = model.capacity;
+          body.append(el("tr", { class: "group" }, [el("th", { colspan: String(1 + stores.length), scope: "colgroup", text: capacity })]));
+        }
+        const modelCell = el("td", { class: "model" }, [
+          el("span", { class: "color", text: model.color }),
+          el("span", { class: "part", text: model.part })
+        ]);
+        const any = stores.some((store) => inStock(((model.stores || {})[store.id] || {}).status));
+        if (any) modelCell.style.boxShadow = "inset 3px 0 0 var(--good)";
+        const row = el("tr", {}, [modelCell]);
+        stores.forEach((store) => {
+          const cell = (model.stores || {})[store.id] || { status: "unknown", text: "No reading yet", stale: true };
+          const label = statusLabel(cell);
+          const td = el("td", { class: (label === "In stock" ? "in" : label === "No reading" ? "unknown" : "out") + (cell.stale ? " stale" : "") });
+          if (label === "In stock") {
+            const link = el("a", { href: model.buy_url, text: "In stock" });
+            td.append(link);
+            const quote = cell.text || "";
+            if (quote && !/unavailable/i.test(quote) && quote !== "Last saved reading") {
+              td.append(el("span", { class: "quote", text: quote }));
+            }
+          } else if (label === "No") {
+            td.append(el("span", { class: "visually-hidden", text: "Unavailable at " + store.name }));
+            td.append(el("span", { "aria-hidden": "true", text: "No" }));
+          } else {
+            td.append(document.createTextNode("No reading"));
+          }
+          if (cell.last_seen_display || cell.last_seen) {
+            const clock = seenClock(cell);
+            td.append(el("span", { class: "seen", text: clock, "aria-label": "Last in stock " + clock }));
+          } else if (label !== "In stock") {
+            td.append(el("span", { class: "seen", text: "Not seen yet" }));
+          }
+          row.append(td);
+        });
+        body.append(row);
+      });
+      table.append(body);
+      return table;
     }
 
     function statusLabel(cell) {
@@ -353,7 +446,7 @@
       latest = data;
       app.replaceChildren();
       const count = data.in_stock_count || 0;
-      document.title = count ? "iPhone Duo — " + count + " in stock" : "iPhone Duo pickup — Melbourne";
+      document.title = count ? "iPhone Duo — " + count + " in stock" : "iPhone Duo pickup — Melbourne and Adelaide";
       if (data.buy_url) document.getElementById("buy").href = data.buy_url;
 
       const problem = data.problem;
@@ -383,77 +476,25 @@
       if (shownStock.length) {
         const list = el("ul");
         shownStock.forEach((item) => {
-          const link = el("a", { href: item.buy_url, text: item.capacity + " " + item.color + " at " + item.store });
+          const where = item.city ? item.store + ", " + item.city : item.store;
+          const link = el("a", { href: item.buy_url, text: item.capacity + " " + item.color + " at " + where });
           const line = el("li", {}, [link]);
           if (item.stale) line.append(document.createTextNode(" (older reading)"));
           list.append(line);
         });
         app.append(el("div", { class: "callout good" }, [el("p", { text: "In stock now" }), list]));
       } else if (!problem || quietRetry) {
-        app.append(el("div", { class: "callout quiet" }, [el("p", { text: "Nothing in stock at these five stores right now." })]));
+        app.append(el("div", { class: "callout quiet" }, [el("p", { text: emptyStockText(data) })]));
       }
 
-      const table = el("table");
-      table.append(el("caption", { class: "visually-hidden", text: "iPhone Duo pickup by model and store" }));
-      const cols = el("colgroup", {}, [el("col", { class: "model-col" })]);
-      (data.stores || []).forEach(() => cols.append(el("col")));
-      table.append(cols);
-      const head = el("tr", {}, [el("th", { class: "model", scope: "col", text: "Model" })]);
-      (data.stores || []).forEach((store) => {
-        const link = el("a", { href: store.url, "aria-label": store.name });
-        link.append(
-          el("span", { class: "name-full", "aria-hidden": "true", text: store.name }),
-          el("span", { class: "name-short", "aria-hidden": "true", text: shortStoreName(store.name) })
-        );
-        head.append(el("th", { class: "store", scope: "col" }, [link]));
+      const groups = storeGroups(data.stores || []);
+      const card = [];
+      groups.forEach((group) => {
+        if (group.city && groups.length > 1) card.push(el("h2", { class: "city", text: group.city }));
+        card.push(el("div", { class: "scroller" }, [stockTable(data, group.stores)]));
       });
-      table.append(el("thead", {}, [head]));
-      const body = el("tbody");
-      let capacity = "";
-      (data.models || []).forEach((model) => {
-        if (model.capacity !== capacity) {
-          capacity = model.capacity;
-          body.append(el("tr", { class: "group" }, [el("th", { colspan: String(1 + (data.stores || []).length), scope: "colgroup", text: capacity })]));
-        }
-        const modelCell = el("td", { class: "model" }, [
-          el("span", { class: "color", text: model.color }),
-          el("span", { class: "part", text: model.part })
-        ]);
-        const any = Object.values(model.stores || {}).some((cell) => inStock(cell.status));
-        if (any) modelCell.style.boxShadow = "inset 3px 0 0 var(--good)";
-        const row = el("tr", {}, [modelCell]);
-        (data.stores || []).forEach((store) => {
-          const cell = (model.stores || {})[store.id] || { status: "unknown", text: "No reading yet", stale: true };
-          const label = statusLabel(cell);
-          const td = el("td", { class: (label === "In stock" ? "in" : label === "No reading" ? "unknown" : "out") + (cell.stale ? " stale" : "") });
-          if (label === "In stock") {
-            const link = el("a", { href: model.buy_url, text: "In stock" });
-            td.append(link);
-            const quote = cell.text || "";
-            if (quote && !/unavailable/i.test(quote) && quote !== "Last saved reading") {
-              td.append(el("span", { class: "quote", text: quote }));
-            }
-          } else if (label === "No") {
-            td.append(el("span", { class: "visually-hidden", text: "Unavailable at " + store.name }));
-            td.append(el("span", { "aria-hidden": "true", text: "No" }));
-          } else {
-            td.append(document.createTextNode("No reading"));
-          }
-          if (cell.last_seen_display || cell.last_seen) {
-            const clock = seenClock(cell);
-            td.append(el("span", { class: "seen", text: clock, "aria-label": "Last in stock " + clock }));
-          } else if (label !== "In stock") {
-            td.append(el("span", { class: "seen", text: "Not seen yet" }));
-          }
-          row.append(td);
-        });
-        body.append(row);
-      });
-      table.append(body);
-      app.append(el("div", { class: "card" }, [
-        el("div", { class: "scroller" }, [table]),
-        el("p", { class: "legend", text: "In stock means Apple is offering pickup. No means currently unavailable. Last in stock is the last Melbourne time we saw pickup offered." })
-      ]));
+      card.push(el("p", { class: "legend", text: "In stock means Apple is offering pickup. No means currently unavailable. Last in stock is the last Melbourne time we saw pickup offered." }));
+      app.append(el("div", { class: "card" }, card));
       const changes = data.recent_history || [];
       const history = el("ul", { class: "history" });
       if (!changes.length) {
@@ -462,7 +503,7 @@
         changes.forEach((event) => {
           const cameIn = event.change === "in_stock";
           history.append(el("li", {}, [
-            el("span", { text: event.capacity + " " + event.color + " at " + event.store }),
+            el("span", { text: event.capacity + " " + event.color + " at " + (event.city ? event.store + ", " + event.city : event.store) }),
             el("span", { class: "change" + (cameIn ? " in" : ""), text: (cameIn ? "In stock" : "Out of stock") + " · " + (event.at_display || "") })
           ]));
         });
