@@ -1,26 +1,18 @@
 {
-  "checked_at": "2026-11-13T20:48:09+11:00",
-  "checked_at_display": "Fri 13 Nov 2026, 8:48 PM AEDT",
-  "last_success": "2026-11-13T20:48:09+11:00",
-  "last_success_display": "Fri 13 Nov 2026, 8:48 PM AEDT",
+  "checked_at": "2026-11-13T20:49:09+11:00",
+  "checked_at_display": "Fri 13 Nov 2026, 8:49 PM AEDT",
+  "last_success": "2026-11-13T20:49:09+11:00",
+  "last_success_display": "Fri 13 Nov 2026, 8:49 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
-  "problem": null,
+  "problem": {
+    "kind": "blocked",
+    "text": "Apple rejected this check (HTTP 541). That usually means the request was blocked, not that the phones are sold out. Not updated in Adelaide.",
+    "stale": false
+  },
   "any_in_stock": true,
-  "in_stock_count": 3,
+  "in_stock_count": 2,
   "in_stock": [
-    {
-      "part": "MK2H4X/A",
-      "name": "iPhone Duo 1TB Star White",
-      "capacity": "1TB",
-      "color": "Star White",
-      "store_id": "R343",
-      "store": "Southland",
-      "city": "Melbourne",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-1tb-star-white",
-      "text": "Available Tomorrow",
-      "stale": false
-    },
     {
       "part": "MK2H4X/A",
       "name": "iPhone Duo 1TB Star White",
@@ -42,8 +34,8 @@
       "store": "Rundle Place",
       "city": "Adelaide",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-2tb-night-sky",
-      "text": "Available Tomorrow",
-      "stale": false
+      "text": "Last saved reading",
+      "stale": true
     }
   ],
   "stores": [
@@ -318,8 +310,8 @@
           "last_seen_display": null
         },
         "R343": {
-          "status": "available",
-          "text": "Available Tomorrow",
+          "status": "unavailable",
+          "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-13T20:48:09+11:00",
           "last_seen_display": "8:48pm"
@@ -335,8 +327,8 @@
           "status": "available",
           "text": "Available Tomorrow",
           "stale": false,
-          "last_seen": "2026-11-13T20:48:09+11:00",
-          "last_seen_display": "8:48pm"
+          "last_seen": "2026-11-13T20:49:09+11:00",
+          "last_seen_display": "8:49pm"
         }
       }
     },
@@ -486,8 +478,8 @@
         },
         "R405": {
           "status": "available",
-          "text": "Available Tomorrow",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T20:48:09+11:00",
           "last_seen_display": "8:48pm"
         }
@@ -495,6 +487,18 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-11-13T20:49:09+11:00",
+      "at_display": "Fri 13 Nov 2026, 8:49 PM AEDT",
+      "part": "MK2H4X/A",
+      "name": "iPhone Duo 1TB Star White",
+      "capacity": "1TB",
+      "color": "Star White",
+      "store_id": "R343",
+      "store": "Southland",
+      "city": "Melbourne",
+      "change": "out_of_stock"
+    },
     {
       "at": "2026-11-13T20:46:24+11:00",
       "at_display": "Fri 13 Nov 2026, 8:46 PM AEDT",
@@ -620,17 +624,6 @@
       "store_id": "R530",
       "store": "Fountain Gate",
       "change": "in_stock"
-    },
-    {
-      "at": "2026-11-13T18:59:03+11:00",
-      "at_display": "Fri 13 Nov 2026, 6:59 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R530",
-      "store": "Fountain Gate",
-      "change": "out_of_stock"
     }
   ],
   "alerts": "on",
