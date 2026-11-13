@@ -490,6 +490,41 @@ class LogicTests(unittest.TestCase):
         self.assertFalse(adelaide["ok"])
         self.assertIn("did not include the Adelaide stores", adelaide["message"])
 
+    def test_page_hides_other_models_without_dropping_saved_stock(self):
+        previous = _baseline("unavailable")
+        observations = _observations("unavailable")
+        observations["MK2H4X/A"]["R405"] = _store("available", "Available Tomorrow")
+        observations["MK2D4X/A"]["R504"] = _store("available", "Available today")
+        observations["MK2F4X/A"]["R180"] = _store("available", "Available today")
+        built = check.build_result(previous, observations, [], NOW)
+        self.assertEqual(len(built["data"]["models"]), len(check.PARTS))
+        self.assertEqual(set(built["baseline"]["statuses"]), {part for part, _, _, _ in check.PARTS})
+        self.assertEqual(built["baseline"]["statuses"]["MK2H4X/A"]["R405"], "available")
+        events = built["transitions"] + [
+            {"at": "2026-10-29T19:00:00+11:00", "part": "MK2L4X/A", "store_id": "R405", "capacity": "2TB", "color": "Night Sky", "change": "in_stock"},
+            {"at": "2026-10-29T18:00:00+11:00", "part": "MK2D4X/A", "store_id": "R530", "capacity": "256GB", "color": "Star White", "change": "out_of_stock"},
+        ]
+        page = check.page_data(built["data"], events)
+        self.assertEqual([model["part"] for model in page["models"]], ["MK2D4X/A", "MK2F4X/A"])
+        self.assertEqual([(item["part"], item["store_id"]) for item in page["in_stock"]], [("MK2D4X/A", "R504"), ("MK2F4X/A", "R180")])
+        self.assertEqual(page["in_stock_count"], 2)
+        self.assertTrue(page["any_in_stock"])
+        self.assertTrue(all(event["part"] in check.ALERT_PART_IDS for event in page["recent_history"]))
+        self.assertIn("MK2L4X/A", {event["part"] for event in events})
+        self.assertNotIn("MK2L4X/A", {event["part"] for event in page["recent_history"]})
+        self.assertEqual(len(built["data"]["stores"]), 6)
+        self.assertEqual(len(page["stores"]), 6)
+        hidden = "Apple rejected this check (HTTP 541). That usually means the request was blocked, not that the phones are sold out. Not updated: iPhone Duo 1TB Night Sky, iPhone Duo 256GB Star White. Not updated in Adelaide."
+        shown = check.hide_unlisted_models(hidden)
+        self.assertIn("iPhone Duo 256GB Star White", shown)
+        self.assertNotIn("1TB", shown)
+        self.assertIn("Not updated in Adelaide", shown)
+        only_hidden = "Apple rejected this check (HTTP 541). Not updated: iPhone Duo 2TB Night Sky."
+        self.assertEqual(
+            check.hide_unlisted_models(only_hidden),
+            "Apple rejected this check (HTTP 541).",
+        )
+
     def test_part_and_store_order(self):
         catalog = [part for part, _, _, _ in check.CATALOG]
         self.assertEqual(
