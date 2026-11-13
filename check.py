@@ -2,7 +2,7 @@
 """Check iPhone Duo pickup stock at Apple Stores in Melbourne and Adelaide.
 
 Stdlib only. Reads Apple's public pickup-message endpoint and writes
-docs/data.json for the webpage. Sends an ntfy.sh alert only when a model
+docs/data.json for the webpage. Sends an ntfy.sh alert only when 256GB or 512GB Star White
 becomes available at a store. The topic comes from the NTFY_TOPIC environment
 variable (a GitHub Actions secret). It is never written into the repo.
 
@@ -116,6 +116,16 @@ if _unknown_parts:
     raise SystemExit("Unknown part in WATCHED_PARTS: " + ", ".join(_unknown_parts))
 
 PARTS = [item for item in CATALOG if item[0] in WATCHED_PARTS]
+
+# Phone alerts only. The page, history, and saved stock still use WATCHED_PARTS.
+ALERT_PARTS = (
+    "MK2D4X/A",  # 256GB Star White
+    "MK2F4X/A",  # 512GB Star White
+)
+_unknown_alerts = [part for part in ALERT_PARTS if part not in _catalog_ids]
+if _unknown_alerts:
+    raise SystemExit("Unknown part in ALERT_PARTS: " + ", ".join(_unknown_alerts))
+ALERT_PART_IDS = set(ALERT_PARTS)
 
 # Apple's pickup API only returns stores near the postcode you send.
 # Melbourne stays on 3000. Adelaide is every store that postcode 5000,
@@ -541,6 +551,8 @@ def fetch_part(part: str) -> dict:
 def find_arrivals(old_statuses: dict, observations: dict) -> list[dict]:
     arrivals = []
     for part, capacity, color, buy in PARTS:
+        if part not in ALERT_PART_IDS:
+            continue
         observed = observations.get(part)
         if not observed:
             continue
