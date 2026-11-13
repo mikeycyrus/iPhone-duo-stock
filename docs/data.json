@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-13T16:36:03+11:00",
-  "checked_at_display": "Fri 13 Nov 2026, 4:36 PM AEDT",
-  "last_success": "2026-11-13T16:36:03+11:00",
-  "last_success_display": "Fri 13 Nov 2026, 4:36 PM AEDT",
+  "checked_at": "2026-11-13T16:37:03+11:00",
+  "checked_at_display": "Fri 13 Nov 2026, 4:37 PM AEDT",
+  "last_success": "2026-11-13T16:37:03+11:00",
+  "last_success_display": "Fri 13 Nov 2026, 4:37 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
@@ -17,7 +17,7 @@
       "store_id": "R342",
       "store": "Doncaster",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
-      "text": "Available Today",
+      "text": "Available Tomorrow",
       "stale": false
     },
     {
@@ -116,17 +116,17 @@
         },
         "R342": {
           "status": "available",
-          "text": "Available Today",
+          "text": "Available Tomorrow",
           "stale": false,
-          "last_seen": "2026-11-13T16:36:03+11:00",
-          "last_seen_display": "4:36pm"
+          "last_seen": "2026-11-13T16:37:03+11:00",
+          "last_seen_display": "4:37pm"
         },
         "R343": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T16:36:03+11:00",
-          "last_seen_display": "4:36pm"
+          "last_seen": "2026-11-13T16:37:03+11:00",
+          "last_seen_display": "4:37pm"
         },
         "R530": {
           "status": "unavailable",
@@ -148,8 +148,8 @@
           "status": "available",
           "text": "Available Tomorrow",
           "stale": false,
-          "last_seen": "2026-11-13T16:36:03+11:00",
-          "last_seen_display": "4:36pm"
+          "last_seen": "2026-11-13T16:37:03+11:00",
+          "last_seen_display": "4:37pm"
         },
         "R180": {
           "status": "unavailable",
@@ -162,8 +162,8 @@
           "status": "available",
           "text": "Available Tomorrow",
           "stale": false,
-          "last_seen": "2026-11-13T16:36:03+11:00",
-          "last_seen_display": "4:36pm"
+          "last_seen": "2026-11-13T16:37:03+11:00",
+          "last_seen_display": "4:37pm"
         },
         "R343": {
           "status": "unavailable",
@@ -176,8 +176,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T16:36:03+11:00",
-          "last_seen_display": "4:36pm"
+          "last_seen": "2026-11-13T16:37:03+11:00",
+          "last_seen_display": "4:37pm"
         }
       }
     }
