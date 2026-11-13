@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-13T12:39:31+11:00",
-  "checked_at_display": "Fri 13 Nov 2026, 12:39 PM AEDT",
-  "last_success": "2026-11-13T12:39:31+11:00",
-  "last_success_display": "Fri 13 Nov 2026, 12:39 PM AEDT",
+  "checked_at": "2026-11-13T12:40:31+11:00",
+  "checked_at_display": "Fri 13 Nov 2026, 12:40 PM AEDT",
+  "last_success": "2026-11-13T12:40:31+11:00",
+  "last_success_display": "Fri 13 Nov 2026, 12:40 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
@@ -17,7 +17,7 @@
       "store_id": "R180",
       "store": "Chadstone",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
-      "text": "Available Tomorrow",
+      "text": "Available Today",
       "stale": false
     },
     {
@@ -76,10 +76,10 @@
         },
         "R180": {
           "status": "available",
-          "text": "Available Tomorrow",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T12:39:31+11:00",
-          "last_seen_display": "12:39pm"
+          "last_seen": "2026-11-13T12:40:31+11:00",
+          "last_seen_display": "12:40pm"
         },
         "R342": {
           "status": "unavailable",
@@ -122,8 +122,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T12:39:31+11:00",
-          "last_seen_display": "12:39pm"
+          "last_seen": "2026-11-13T12:40:31+11:00",
+          "last_seen_display": "12:40pm"
         },
         "R342": {
           "status": "unavailable",
