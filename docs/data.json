@@ -1,51 +1,14 @@
 {
-  "checked_at": "2026-11-13T21:50:29+11:00",
-  "checked_at_display": "Fri 13 Nov 2026, 9:50 PM AEDT",
-  "last_success": "2026-11-13T21:50:29+11:00",
-  "last_success_display": "Fri 13 Nov 2026, 9:50 PM AEDT",
+  "checked_at": "2026-11-13T21:57:25+11:00",
+  "checked_at_display": "Fri 13 Nov 2026, 9:57 PM AEDT",
+  "last_success": "2026-11-13T21:57:25+11:00",
+  "last_success_display": "Fri 13 Nov 2026, 9:57 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
   "problem": null,
-  "any_in_stock": true,
-  "in_stock_count": 3,
-  "in_stock": [
-    {
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R504",
-      "store": "Highpoint",
-      "city": "Melbourne",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
-      "text": "Available Sun 15 Nov",
-      "stale": false
-    },
-    {
-      "part": "MK2H4X/A",
-      "name": "iPhone Duo 1TB Star White",
-      "capacity": "1TB",
-      "color": "Star White",
-      "store_id": "R405",
-      "store": "Rundle Place",
-      "city": "Adelaide",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-1tb-star-white",
-      "text": "Available Tomorrow",
-      "stale": false
-    },
-    {
-      "part": "MK2L4X/A",
-      "name": "iPhone Duo 2TB Night Sky",
-      "capacity": "2TB",
-      "color": "Night Sky",
-      "store_id": "R405",
-      "store": "Rundle Place",
-      "city": "Adelaide",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-2tb-night-sky",
-      "text": "Available Tomorrow",
-      "stale": false
-    }
-  ],
+  "any_in_stock": false,
+  "in_stock_count": 0,
+  "in_stock": [],
   "stores": [
     {
       "id": "R504",
@@ -137,57 +100,6 @@
       }
     },
     {
-      "part": "MK2E4X/A",
-      "name": "iPhone Duo 256GB Night Sky",
-      "capacity": "256GB",
-      "color": "Night Sky",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-night-sky",
-      "stores": {
-        "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R180": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R342": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R530": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": "2026-11-13T20:28:09+11:00",
-          "last_seen_display": "8:28pm"
-        },
-        "R405": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        }
-      }
-    },
-    {
       "part": "MK2F4X/A",
       "name": "iPhone Duo 512GB Star White",
       "capacity": "512GB",
@@ -195,11 +107,11 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
       "stores": {
         "R504": {
-          "status": "available",
-          "text": "Available Sun 15 Nov",
+          "status": "unavailable",
+          "text": "Currently unavailable",
           "stale": false,
-          "last_seen": "2026-11-13T21:50:29+11:00",
-          "last_seen_display": "9:50pm"
+          "last_seen": "2026-11-13T21:51:28+11:00",
+          "last_seen_display": "9:51pm"
         },
         "R180": {
           "status": "unavailable",
@@ -237,264 +149,21 @@
           "last_seen_display": null
         }
       }
-    },
-    {
-      "part": "MK2G4X/A",
-      "name": "iPhone Duo 512GB Night Sky",
-      "capacity": "512GB",
-      "color": "Night Sky",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-night-sky",
-      "stores": {
-        "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R180": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R342": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R530": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R405": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        }
-      }
-    },
-    {
-      "part": "MK2H4X/A",
-      "name": "iPhone Duo 1TB Star White",
-      "capacity": "1TB",
-      "color": "Star White",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-1tb-star-white",
-      "stores": {
-        "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R180": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R342": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": "2026-11-13T20:48:09+11:00",
-          "last_seen_display": "8:48pm"
-        },
-        "R530": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R405": {
-          "status": "available",
-          "text": "Available Tomorrow",
-          "stale": false,
-          "last_seen": "2026-11-13T21:50:29+11:00",
-          "last_seen_display": "9:50pm"
-        }
-      }
-    },
-    {
-      "part": "MK2J4X/A",
-      "name": "iPhone Duo 1TB Night Sky",
-      "capacity": "1TB",
-      "color": "Night Sky",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-1tb-night-sky",
-      "stores": {
-        "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R180": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R342": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R530": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R405": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        }
-      }
-    },
-    {
-      "part": "MK2K4X/A",
-      "name": "iPhone Duo 2TB Star White",
-      "capacity": "2TB",
-      "color": "Star White",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-2tb-star-white",
-      "stores": {
-        "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R180": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R342": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R530": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R405": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        }
-      }
-    },
-    {
-      "part": "MK2L4X/A",
-      "name": "iPhone Duo 2TB Night Sky",
-      "capacity": "2TB",
-      "color": "Night Sky",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-2tb-night-sky",
-      "stores": {
-        "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R180": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R342": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R343": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R530": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
-          "last_seen": null,
-          "last_seen_display": null
-        },
-        "R405": {
-          "status": "available",
-          "text": "Available Tomorrow",
-          "stale": false,
-          "last_seen": "2026-11-13T21:50:29+11:00",
-          "last_seen_display": "9:50pm"
-        }
-      }
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-11-13T21:52:27+11:00",
+      "at_display": "Fri 13 Nov 2026, 9:52 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "city": "Melbourne",
+      "change": "out_of_stock"
+    },
     {
       "at": "2026-11-13T21:45:50+11:00",
       "at_display": "Fri 13 Nov 2026, 9:45 PM AEDT",
@@ -504,78 +173,6 @@
       "color": "Star White",
       "store_id": "R504",
       "store": "Highpoint",
-      "city": "Melbourne",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-13T20:49:09+11:00",
-      "at_display": "Fri 13 Nov 2026, 8:49 PM AEDT",
-      "part": "MK2H4X/A",
-      "name": "iPhone Duo 1TB Star White",
-      "capacity": "1TB",
-      "color": "Star White",
-      "store_id": "R343",
-      "store": "Southland",
-      "city": "Melbourne",
-      "change": "out_of_stock"
-    },
-    {
-      "at": "2026-11-13T20:46:24+11:00",
-      "at_display": "Fri 13 Nov 2026, 8:46 PM AEDT",
-      "part": "MK2H4X/A",
-      "name": "iPhone Duo 1TB Star White",
-      "capacity": "1TB",
-      "color": "Star White",
-      "store_id": "R343",
-      "store": "Southland",
-      "city": "Melbourne",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-13T20:29:23+11:00",
-      "at_display": "Fri 13 Nov 2026, 8:29 PM AEDT",
-      "part": "MK2E4X/A",
-      "name": "iPhone Duo 256GB Night Sky",
-      "capacity": "256GB",
-      "color": "Night Sky",
-      "store_id": "R530",
-      "store": "Fountain Gate",
-      "city": "Melbourne",
-      "change": "out_of_stock"
-    },
-    {
-      "at": "2026-11-13T20:24:11+11:00",
-      "at_display": "Fri 13 Nov 2026, 8:24 PM AEDT",
-      "part": "MK2L4X/A",
-      "name": "iPhone Duo 2TB Night Sky",
-      "capacity": "2TB",
-      "color": "Night Sky",
-      "store_id": "R405",
-      "store": "Rundle Place",
-      "city": "Adelaide",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-13T20:24:11+11:00",
-      "at_display": "Fri 13 Nov 2026, 8:24 PM AEDT",
-      "part": "MK2H4X/A",
-      "name": "iPhone Duo 1TB Star White",
-      "capacity": "1TB",
-      "color": "Star White",
-      "store_id": "R405",
-      "store": "Rundle Place",
-      "city": "Adelaide",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-13T20:24:11+11:00",
-      "at_display": "Fri 13 Nov 2026, 8:24 PM AEDT",
-      "part": "MK2E4X/A",
-      "name": "iPhone Duo 256GB Night Sky",
-      "capacity": "256GB",
-      "color": "Night Sky",
-      "store_id": "R530",
-      "store": "Fountain Gate",
       "city": "Melbourne",
       "change": "in_stock"
     },
@@ -633,6 +230,61 @@
       "store_id": "R530",
       "store": "Fountain Gate",
       "change": "out_of_stock"
+    },
+    {
+      "at": "2026-11-13T19:01:01+11:00",
+      "at_display": "Fri 13 Nov 2026, 7:01 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-11-13T18:59:03+11:00",
+      "at_display": "Fri 13 Nov 2026, 6:59 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
+      "change": "out_of_stock"
+    },
+    {
+      "at": "2026-11-13T18:58:03+11:00",
+      "at_display": "Fri 13 Nov 2026, 6:58 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-11-13T18:22:22+11:00",
+      "at_display": "Fri 13 Nov 2026, 6:22 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "out_of_stock"
+    },
+    {
+      "at": "2026-11-13T18:16:45+11:00",
+      "at_display": "Fri 13 Nov 2026, 6:16 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "in_stock"
     }
   ],
   "alerts": "on",
