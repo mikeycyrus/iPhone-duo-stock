@@ -1,15 +1,11 @@
 {
-  "checked_at": "2026-11-14T10:37:58+11:00",
-  "checked_at_display": "Sat 14 Nov 2026, 10:37 AM AEDT",
-  "last_success": "2026-11-14T10:36:59+11:00",
-  "last_success_display": "Sat 14 Nov 2026, 10:36 AM AEDT",
+  "checked_at": "2026-11-14T10:40:50+11:00",
+  "checked_at_display": "Sat 14 Nov 2026, 10:40 AM AEDT",
+  "last_success": "2026-11-14T10:40:50+11:00",
+  "last_success_display": "Sat 14 Nov 2026, 10:40 AM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
-  "problem": {
-    "kind": "blocked",
-    "text": "Apple rejected this check (HTTP 541). That usually means the request was blocked, not that the phones are sold out. The grid below is the last saved reading from Sat 14 Nov 2026, 10:36 AM AEDT.",
-    "stale": true
-  },
+  "problem": null,
   "any_in_stock": true,
   "in_stock_count": 2,
   "in_stock": [
@@ -22,8 +18,8 @@
       "store": "Chadstone",
       "city": "Melbourne",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
-      "text": "Last saved reading",
-      "stale": true
+      "text": "Available Today",
+      "stale": false
     },
     {
       "part": "MK2F4X/A",
@@ -34,8 +30,8 @@
       "store": "Chadstone",
       "city": "Melbourne",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
-      "text": "Last saved reading",
-      "stale": true
+      "text": "Available Today",
+      "stale": false
     }
   ],
   "stores": [
@@ -86,43 +82,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-13T19:35:31+11:00",
           "last_seen_display": "13 Nov 7:35pm"
         },
         "R180": {
           "status": "available",
-          "text": "Last saved reading",
-          "stale": true,
-          "last_seen": "2026-11-14T10:36:59+11:00",
-          "last_seen_display": "10:36am"
+          "text": "Available Today",
+          "stale": false,
+          "last_seen": "2026-11-14T10:40:50+11:00",
+          "last_seen_display": "10:40am"
         },
         "R342": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-13T17:06:31+11:00",
           "last_seen_display": "13 Nov 5:06pm"
         },
         "R343": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-13T17:06:31+11:00",
           "last_seen_display": "13 Nov 5:06pm"
         },
         "R530": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-13T17:32:58+11:00",
           "last_seen_display": "13 Nov 5:32pm"
         },
         "R405": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": null,
           "last_seen_display": null
         }
@@ -137,43 +133,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-14T04:25:37+11:00",
           "last_seen_display": "4:25am"
         },
         "R180": {
           "status": "available",
-          "text": "Last saved reading",
-          "stale": true,
-          "last_seen": "2026-11-14T10:36:59+11:00",
-          "last_seen_display": "10:36am"
+          "text": "Available Today",
+          "stale": false,
+          "last_seen": "2026-11-14T10:40:50+11:00",
+          "last_seen_display": "10:40am"
         },
         "R342": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-13T17:07:07+11:00",
           "last_seen_display": "13 Nov 5:07pm"
         },
         "R343": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-13T16:33:25+11:00",
           "last_seen_display": "13 Nov 4:33pm"
         },
         "R530": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-13T19:12:43+11:00",
           "last_seen_display": "13 Nov 7:12pm"
         },
         "R405": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": null,
           "last_seen_display": null
         }
