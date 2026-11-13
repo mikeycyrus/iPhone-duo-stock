@@ -1,15 +1,11 @@
 {
-  "checked_at": "2026-11-13T23:31:27+11:00",
-  "checked_at_display": "Fri 13 Nov 2026, 11:31 PM AEDT",
-  "last_success": "2026-11-13T23:31:27+11:00",
-  "last_success_display": "Fri 13 Nov 2026, 11:31 PM AEDT",
+  "checked_at": "2026-11-13T23:32:27+11:00",
+  "checked_at_display": "Fri 13 Nov 2026, 11:32 PM AEDT",
+  "last_success": "2026-11-13T23:32:27+11:00",
+  "last_success_display": "Fri 13 Nov 2026, 11:32 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
-  "problem": {
-    "kind": "blocked",
-    "text": "Apple's pickup service returned HTTP 503, so stock could not be read. This does not mean the phones are sold out. Not updated in Adelaide.",
-    "stale": false
-  },
+  "problem": null,
   "any_in_stock": true,
   "in_stock_count": 1,
   "in_stock": [
@@ -127,8 +123,8 @@
           "status": "available",
           "text": "Available Sun 15 Nov",
           "stale": false,
-          "last_seen": "2026-11-13T23:31:27+11:00",
-          "last_seen_display": "11:31pm"
+          "last_seen": "2026-11-13T23:32:27+11:00",
+          "last_seen_display": "11:32pm"
         },
         "R180": {
           "status": "unavailable",
