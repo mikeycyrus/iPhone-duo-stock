@@ -1,11 +1,15 @@
 {
-  "checked_at": "2026-11-14T03:37:12+11:00",
-  "checked_at_display": "Sat 14 Nov 2026, 3:37 AM AEDT",
-  "last_success": "2026-11-14T03:37:12+11:00",
-  "last_success_display": "Sat 14 Nov 2026, 3:37 AM AEDT",
+  "checked_at": "2026-11-14T03:38:11+11:00",
+  "checked_at_display": "Sat 14 Nov 2026, 3:38 AM AEDT",
+  "last_success": "2026-11-14T03:38:11+11:00",
+  "last_success_display": "Sat 14 Nov 2026, 3:38 AM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
-  "problem": null,
+  "problem": {
+    "kind": "blocked",
+    "text": "Apple rejected this check (HTTP 541). That usually means the request was blocked, not that the phones are sold out. Not updated: iPhone Duo 512GB Star White.",
+    "stale": false
+  },
   "any_in_stock": true,
   "in_stock_count": 1,
   "in_stock": [
@@ -18,8 +22,8 @@
       "store": "Highpoint",
       "city": "Melbourne",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
-      "text": "Available Today",
-      "stale": false
+      "text": "Last saved reading",
+      "stale": true
     }
   ],
   "stores": [
@@ -121,43 +125,43 @@
       "stores": {
         "R504": {
           "status": "available",
-          "text": "Available Today",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T03:37:12+11:00",
           "last_seen_display": "3:37am"
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T16:51:49+11:00",
           "last_seen_display": "13 Nov 4:51pm"
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T17:07:07+11:00",
           "last_seen_display": "13 Nov 5:07pm"
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T16:33:25+11:00",
           "last_seen_display": "13 Nov 4:33pm"
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T19:12:43+11:00",
           "last_seen_display": "13 Nov 7:12pm"
         },
         "R405": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         }
