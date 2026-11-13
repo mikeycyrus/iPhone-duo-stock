@@ -1,25 +1,14 @@
 {
-  "checked_at": "2026-11-13T15:39:22+11:00",
+  "checked_at": "2026-11-13T15:39:57+11:00",
   "checked_at_display": "Fri 13 Nov 2026, 3:39 PM AEDT",
-  "last_success": "2026-11-13T15:39:22+11:00",
+  "last_success": "2026-11-13T15:39:57+11:00",
   "last_success_display": "Fri 13 Nov 2026, 3:39 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000",
   "problem": null,
   "any_in_stock": true,
-  "in_stock_count": 7,
+  "in_stock_count": 6,
   "in_stock": [
-    {
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R504",
-      "store": "Highpoint",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
-      "text": "Available Tomorrow",
-      "stale": false
-    },
     {
       "part": "MK2D4X/A",
       "name": "iPhone Duo 256GB Star White",
@@ -123,8 +112,8 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
       "stores": {
         "R504": {
-          "status": "available",
-          "text": "Available Tomorrow",
+          "status": "unavailable",
+          "text": "Currently unavailable",
           "stale": false,
           "last_seen": "2026-11-13T15:39:22+11:00",
           "last_seen_display": "3:39pm"
@@ -140,21 +129,21 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T15:39:22+11:00",
+          "last_seen": "2026-11-13T15:39:57+11:00",
           "last_seen_display": "3:39pm"
         },
         "R343": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T15:39:22+11:00",
+          "last_seen": "2026-11-13T15:39:57+11:00",
           "last_seen_display": "3:39pm"
         },
         "R530": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T15:39:22+11:00",
+          "last_seen": "2026-11-13T15:39:57+11:00",
           "last_seen_display": "3:39pm"
         }
       }
@@ -170,7 +159,7 @@
           "status": "available",
           "text": "Available Tomorrow",
           "stale": false,
-          "last_seen": "2026-11-13T15:39:22+11:00",
+          "last_seen": "2026-11-13T15:39:57+11:00",
           "last_seen_display": "3:39pm"
         },
         "R180": {
@@ -184,7 +173,7 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T15:39:22+11:00",
+          "last_seen": "2026-11-13T15:39:57+11:00",
           "last_seen_display": "3:39pm"
         },
         "R343": {
@@ -198,13 +187,24 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T15:39:22+11:00",
+          "last_seen": "2026-11-13T15:39:57+11:00",
           "last_seen_display": "3:39pm"
         }
       }
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-11-13T15:39:57+11:00",
+      "at_display": "Fri 13 Nov 2026, 3:39 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "change": "out_of_stock"
+    },
     {
       "at": "2026-11-13T15:30:49+11:00",
       "at_display": "Fri 13 Nov 2026, 3:30 PM AEDT",
@@ -325,17 +325,6 @@
       "store_id": "R343",
       "store": "Southland",
       "change": "in_stock"
-    },
-    {
-      "at": "2026-11-13T14:16:43+11:00",
-      "at_display": "Fri 13 Nov 2026, 2:16 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R180",
-      "store": "Chadstone",
-      "change": "out_of_stock"
     }
   ],
   "alerts": "on",
