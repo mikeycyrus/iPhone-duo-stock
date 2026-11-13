@@ -1,11 +1,15 @@
 {
-  "checked_at": "2026-11-13T20:58:17+11:00",
-  "checked_at_display": "Fri 13 Nov 2026, 8:58 PM AEDT",
-  "last_success": "2026-11-13T20:58:17+11:00",
-  "last_success_display": "Fri 13 Nov 2026, 8:58 PM AEDT",
+  "checked_at": "2026-11-13T20:59:17+11:00",
+  "checked_at_display": "Fri 13 Nov 2026, 8:59 PM AEDT",
+  "last_success": "2026-11-13T20:59:17+11:00",
+  "last_success_display": "Fri 13 Nov 2026, 8:59 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
-  "problem": null,
+  "problem": {
+    "kind": "blocked",
+    "text": "Apple rejected this check (HTTP 541). That usually means the request was blocked, not that the phones are sold out. Not updated: iPhone Duo 256GB Night Sky, iPhone Duo 512GB Star White, iPhone Duo 512GB Night Sky, iPhone Duo 1TB Star White, iPhone Duo 1TB Night Sky, iPhone Duo 2TB Star White, iPhone Duo 2TB Night Sky. Not updated in Adelaide.",
+    "stale": false
+  },
   "any_in_stock": true,
   "in_stock_count": 2,
   "in_stock": [
@@ -18,8 +22,8 @@
       "store": "Rundle Place",
       "city": "Adelaide",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-1tb-star-white",
-      "text": "Available Tomorrow",
-      "stale": false
+      "text": "Last saved reading",
+      "stale": true
     },
     {
       "part": "MK2L4X/A",
@@ -30,8 +34,8 @@
       "store": "Rundle Place",
       "city": "Adelaide",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-2tb-night-sky",
-      "text": "Available Tomorrow",
-      "stale": false
+      "text": "Last saved reading",
+      "stale": true
     }
   ],
   "stores": [
@@ -117,8 +121,8 @@
         },
         "R405": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         }
@@ -133,43 +137,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T20:28:09+11:00",
           "last_seen_display": "8:28pm"
         },
         "R405": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         }
@@ -184,43 +188,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T19:42:34+11:00",
           "last_seen_display": "7:42pm"
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T16:51:49+11:00",
           "last_seen_display": "4:51pm"
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T17:07:07+11:00",
           "last_seen_display": "5:07pm"
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T16:33:25+11:00",
           "last_seen_display": "4:33pm"
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T19:12:43+11:00",
           "last_seen_display": "7:12pm"
         },
         "R405": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         }
@@ -235,43 +239,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R405": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         }
@@ -286,43 +290,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T20:48:09+11:00",
           "last_seen_display": "8:48pm"
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R405": {
           "status": "available",
-          "text": "Available Tomorrow",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T20:58:17+11:00",
           "last_seen_display": "8:58pm"
         }
@@ -337,43 +341,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R405": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         }
@@ -388,43 +392,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R405": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         }
@@ -439,43 +443,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         },
         "R405": {
           "status": "available",
-          "text": "Available Tomorrow",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-13T20:58:17+11:00",
           "last_seen_display": "8:58pm"
         }
