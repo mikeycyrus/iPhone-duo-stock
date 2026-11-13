@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check iPhone Duo pickup stock at five Melbourne Apple Stores.
+"""Check iPhone Duo pickup stock at Apple Stores in Melbourne and Adelaide.
 
 Stdlib only. Reads Apple's public pickup-message endpoint and writes
 docs/data.json for the webpage. Sends an ntfy.sh alert only when a model
@@ -38,7 +38,6 @@ WATCH_INTERVAL_SECONDS = 60
 # Apple's fulfillment-messages URL is intentionally not used (HTTP 541).
 PICKUP_URL = "https://www.apple.com/au/shop/retail/pickup-message"
 BUY_URL = "https://www.apple.com/au/shop/buy-iphone/iphone-duo"
-LOCATION = "3000"
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
@@ -50,7 +49,13 @@ BLOCK_CODES = {401, 403, 429, 503, 541}
 # Put a part number back to watch that model again.
 WATCHED_PARTS = (
     "MK2D4X/A",  # 256GB Star White
+    "MK2E4X/A",  # 256GB Night Sky
     "MK2F4X/A",  # 512GB Star White
+    "MK2G4X/A",  # 512GB Night Sky
+    "MK2H4X/A",  # 1TB Star White
+    "MK2J4X/A",  # 1TB Night Sky
+    "MK2K4X/A",  # 2TB Star White
+    "MK2L4X/A",  # 2TB Night Sky
 )
 
 # Full catalog, Star White then Night Sky in each capacity.
@@ -112,13 +117,40 @@ if _unknown_parts:
 
 PARTS = [item for item in CATALOG if item[0] in WATCHED_PARTS]
 
+# Apple's pickup API only returns stores near the postcode you send.
+# Melbourne stays on 3000. Adelaide is every store that postcode 5000,
+# and Apple's Australian store list, return for South Australia.
+REGIONS = (
+    (
+        "3000",
+        "Melbourne",
+        (
+            ("R504", "Highpoint", "https://www.apple.com/au/retail/highpoint/"),
+            ("R180", "Chadstone", "https://www.apple.com/au/retail/chadstone/"),
+            ("R342", "Doncaster", "https://www.apple.com/au/retail/doncaster/"),
+            ("R343", "Southland", "https://www.apple.com/au/retail/southland/"),
+            ("R530", "Fountain Gate", "https://www.apple.com/au/retail/fountaingate/"),
+        ),
+    ),
+    (
+        "5000",
+        "Adelaide",
+        (
+            ("R405", "Rundle Place", "https://www.apple.com/au/retail/rundleplace/"),
+        ),
+    ),
+)
+
 STORES = [
-    ("R504", "Highpoint", "https://www.apple.com/au/retail/highpoint/"),
-    ("R180", "Chadstone", "https://www.apple.com/au/retail/chadstone/"),
-    ("R342", "Doncaster", "https://www.apple.com/au/retail/doncaster/"),
-    ("R343", "Southland", "https://www.apple.com/au/retail/southland/"),
-    ("R530", "Fountain Gate", "https://www.apple.com/au/retail/fountaingate/"),
+    (store_id, name, url)
+    for _postcode, _place, region_stores in REGIONS
+    for store_id, name, url in region_stores
 ]
+STORE_CITY = {
+    store_id: place
+    for _postcode, place, region_stores in REGIONS
+    for store_id, _name, _url in region_stores
+}
 
 STORE_IDS = {store_id for store_id, _, _ in STORES}
 PART_INDEX = {part: (capacity, color, url) for part, capacity, color, url in PARTS}
@@ -155,6 +187,20 @@ def normalize_topic(raw: str | None) -> tuple[str | None, str | None]:
     if len(topic) > 64:
         return None, "invalid"
     return topic, None
+
+
+def _location_label() -> str:
+    bits = [f"{place} pickup near postcode {postcode}" for postcode, place, _stores in REGIONS]
+    if len(bits) == 1:
+        return bits[0]
+    return " and ".join(bits)
+
+
+def _store_name_list() -> str:
+    names = [name for _store_id, name, _url in STORES]
+    if len(names) == 1:
+        return names[0]
+    return ", ".join(names[:-1]) + ", or " + names[-1]
 
 
 def pages_url() -> str:
@@ -292,7 +338,13 @@ def plain_http_message(status: int | None, blocked: bool) -> str:
     return "The stock check could not reach Apple. This does not mean the phones are sold out."
 
 
-def interpret_response(status: int, body: bytes, part: str) -> dict:
+def interpret_response(
+    status: int,
+    body: bytes,
+    part: str,
+    expected_ids: set | None = None,
+    place: str = "Melbourne",
+) -> dict:
     """Turn one HTTP response into a success or a plain-language failure."""
     text = body.decode("utf-8", "replace")
     if status in BLOCK_CODES or (status >= 400 and looks_like_block_page(text)):
@@ -348,14 +400,14 @@ def interpret_response(status: int, body: bytes, part: str) -> dict:
             "status": head_status,
             "message": plain_http_message(head_status, blocked),
         }
-    stores = stores_from_payload(payload, part)
+    stores = stores_from_payload(payload, part, expected_ids)
     if not stores:
         return {
             "ok": False,
             "blocked": True,
             "status": status,
             "message": (
-                "Apple answered, but did not include the Melbourne stores. "
+                f"Apple answered, but did not include the {place} stores. "
                 "That can happen when a request is rejected. "
                 "This does not mean the phones are sold out."
             ),
@@ -363,13 +415,14 @@ def interpret_response(status: int, body: bytes, part: str) -> dict:
     return {"ok": True, "blocked": False, "status": status, "stores": stores}
 
 
-def stores_from_payload(payload: dict, part: str) -> dict:
+def stores_from_payload(payload: dict, part: str, expected_ids: set | None = None) -> dict:
+    wanted = STORE_IDS if expected_ids is None else expected_ids
     found = {}
     for store in (payload.get("body") or {}).get("stores") or []:
         if not isinstance(store, dict):
             continue
         store_id = store.get("storeNumber")
-        if store_id not in STORE_IDS:
+        if store_id not in wanted:
             continue
         availability = (store.get("partsAvailability") or {}).get(part) or {}
         if not isinstance(availability, dict):
@@ -393,8 +446,8 @@ def _retry_wait(status: int | None) -> float | None:
     return None
 
 
-def fetch_part(part: str) -> dict:
-    query = urllib.parse.urlencode({"pl": "true", "parts.0": part, "location": LOCATION})
+def _fetch_part_location(part: str, postcode: str, expected_ids: set, place: str) -> dict:
+    query = urllib.parse.urlencode({"pl": "true", "parts.0": part, "location": postcode})
     url = f"{PICKUP_URL}?{query}"
     last: dict | None = None
     for attempt in range(2):
@@ -418,6 +471,7 @@ def fetch_part(part: str) -> dict:
                 "ok": False,
                 "blocked": False,
                 "status": None,
+                "place": place,
                 "message": (
                     "The stock check could not reach Apple "
                     f"({error.__class__.__name__}). This does not mean the phones are sold out."
@@ -427,7 +481,8 @@ def fetch_part(part: str) -> dict:
                 time.sleep(1.5)
                 continue
             return last
-        result = interpret_response(status, body, part)
+        result = interpret_response(status, body, part, expected_ids, place)
+        result["place"] = place
         last = result
         if result["ok"] or attempt == 1:
             return result
@@ -435,9 +490,47 @@ def fetch_part(part: str) -> dict:
         if wait is None:
             return result
         if result.get("status") == 541:
-            print(f"{part}: Apple returned HTTP 541. Retrying once in {wait}s.")
+            print(f"{part}: Apple returned HTTP 541 for {place}. Retrying once in {wait}s.")
         time.sleep(wait)
-    return last or {
+    if last is not None:
+        last["place"] = place
+        return last
+    return {
+        "ok": False,
+        "blocked": False,
+        "status": None,
+        "place": place,
+        "message": "The stock check could not reach Apple. This does not mean the phones are sold out.",
+    }
+
+
+def fetch_part(part: str) -> dict:
+    """Ask Apple once per city and merge the stores. One city can fail on its own."""
+    merged: dict = {}
+    failures = []
+    for index, (postcode, place, region_stores) in enumerate(REGIONS):
+        if index:
+            time.sleep(REQUEST_PAUSE_SECONDS)
+        expected = {store_id for store_id, _, _ in region_stores}
+        result = _fetch_part_location(part, postcode, expected, place)
+        if result.get("ok"):
+            merged.update(result["stores"])
+        else:
+            failures.append(result)
+    if merged and not failures:
+        return {"ok": True, "blocked": False, "status": 200, "stores": merged}
+    if merged:
+        return {
+            "ok": True,
+            "partial": True,
+            "blocked": any(item.get("blocked") for item in failures),
+            "status": failures[0].get("status"),
+            "stores": merged,
+            "failures": failures,
+        }
+    if failures:
+        return failures[0]
+    return {
         "ok": False,
         "blocked": False,
         "status": None,
@@ -467,6 +560,7 @@ def find_arrivals(old_statuses: dict, observations: dict) -> list[dict]:
                     "color": color,
                     "store_id": store_id,
                     "store": store_name,
+                    "city": STORE_CITY.get(store_id, ""),
                     "buy_url": buy,
                     "text": cell.get("text") or "",
                 }
@@ -478,13 +572,16 @@ def format_notification(arrivals: list[dict], site_url: str) -> tuple[str, str, 
     """Return title, markdown body, click URL, and an ntfy Actions header."""
     lines = []
     for item in arrivals:
-        lines.append(f"**{item['name']}** is available for pickup at **{item['store']}**.")
+        place = item["store"]
+        if item.get("city"):
+            place = f"{place} ({item['city']})"
+        lines.append(f"**{item['name']}** is available for pickup at **{place}**.")
         quote = (item.get("text") or "").strip()
         if quote and "unavailable" not in quote.lower():
             lines.append(quote)
         lines.append(f"[Buy this model]({item['buy_url']})")
         lines.append("")
-    lines.append(f"[Melbourne stock page]({site_url})")
+    lines.append(f"[Stock page]({site_url})")
     body = "\n".join(lines).strip()
     if len(arrivals) == 1:
         item = arrivals[0]
@@ -619,6 +716,7 @@ def availability_changes(old_statuses: dict, observations: dict, now: datetime) 
                     "color": color,
                     "store_id": store_id,
                     "store": store_name,
+                    "city": STORE_CITY.get(store_id, ""),
                     "change": change,
                 }
             )
@@ -729,7 +827,7 @@ def build_result(previous: dict | None, observations: dict, errors: list[dict], 
                         "last_seen_display": seen_display,
                     }
             if is_available(cells[store_id]["status"]):
-                in_stock.append(
+                    in_stock.append(
                     {
                         "part": part,
                         "name": f"iPhone Duo {capacity} {color}",
@@ -737,6 +835,7 @@ def build_result(previous: dict | None, observations: dict, errors: list[dict], 
                         "color": color,
                         "store_id": store_id,
                         "store": store_name,
+                        "city": STORE_CITY.get(store_id, ""),
                         "buy_url": buy,
                         "text": cells[store_id]["text"],
                         "stale": cells[store_id]["stale"],
@@ -767,13 +866,14 @@ def build_result(previous: dict | None, observations: dict, errors: list[dict], 
         "last_success": last_success_dt.isoformat(timespec="seconds") if last_success_dt else None,
         "last_success_display": _display_time(last_success_dt) if last_success_dt else None,
         "buy_url": BUY_URL,
-        "location": "Melbourne pickup near postcode 3000",
+        "location": _location_label(),
         "problem": problem,
         "any_in_stock": bool(in_stock),
         "in_stock_count": len(in_stock),
         "in_stock": in_stock,
         "stores": [
-            {"id": store_id, "name": name, "url": url} for store_id, name, url in STORES
+            {"id": store_id, "name": name, "url": url, "city": STORE_CITY.get(store_id, "")}
+            for store_id, name, url in STORES
         ],
         "models": models,
         "recent_history": [],
@@ -806,9 +906,24 @@ def _problem_banner(
     else:
         lead = "Part of this stock check failed. This does not mean the phones are sold out."
     if any_success:
-        names = [model_name(error["part"]) for error in errors if error.get("part") in PART_INDEX]
-        if names:
-            lead = f"{lead} Not updated: {', '.join(names)}."
+        missed_models = []
+        missed_places = []
+        for error in errors:
+            part = error.get("part")
+            if part not in PART_INDEX:
+                continue
+            if error.get("partial"):
+                place = error.get("place")
+                if place and place not in missed_places:
+                    missed_places.append(place)
+            else:
+                name = model_name(part)
+                if name not in missed_models:
+                    missed_models.append(name)
+        if missed_models:
+            lead = f"{lead} Not updated: {', '.join(missed_models)}."
+        if missed_places:
+            lead = f"{lead} Not updated in {', '.join(missed_places)}."
         return {"kind": "blocked" if blocked else "error", "text": lead, "stale": False}
     if have_previous and last_success_dt is not None:
         when = _display_time(last_success_dt)
@@ -904,10 +1019,13 @@ def write_summary(data: dict, arrivals: list[dict], notify_note: str) -> None:
         lines.append("")
         for item in data["in_stock"]:
             stale = " (older reading)" if item.get("stale") else ""
-            lines.append(f"- {item['name']} at {item['store']}{stale}")
+            where = item["store"]
+            if item.get("city"):
+                where = f"{where}, {item['city']}"
+            lines.append(f"- {item['name']} at {where}{stale}")
         lines.append("")
     elif not problem:
-        lines.append("Nothing in stock at Highpoint, Chadstone, Doncaster, Southland, or Fountain Gate.")
+        lines.append(f"Nothing in stock at {_store_name_list()}.")
         lines.append("")
     if arrivals:
         lines.append(f"New since the last saved reading: {len(arrivals)}.")
@@ -996,6 +1114,15 @@ def run() -> None:
                 print(f"{part} {model_name(part)}: in stock at {', '.join(available)}")
             else:
                 print(f"{part} {model_name(part)}: not in stock at these stores")
+            for failure in result.get("failures") or []:
+                errors.append({"part": part, "partial": True, **failure})
+                code = failure.get("status")
+                kind = "BLOCKED" if failure.get("blocked") else "ERROR"
+                place = failure.get("place") or "some stores"
+                print(
+                    f"{part} {model_name(part)}: {kind} for {place}"
+                    + (f" HTTP {code}" if code else "")
+                )
         else:
             errors.append({"part": part, **result})
             code = result.get("status")

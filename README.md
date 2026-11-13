@@ -1,6 +1,6 @@
 # iPhone Duo pickup stock
 
-This watches pickup stock for the iPhone Duo at five Apple Stores in Melbourne and puts the result on a simple phone-friendly page.
+This watches pickup stock for the iPhone Duo at Apple Stores in Melbourne and Adelaide and puts the result on a simple phone-friendly page.
 
 The page is:
 
@@ -10,16 +10,28 @@ Open that on your phone. Green means Apple is offering pickup for that model at 
 
 It covers these stores:
 
+Melbourne:
+
 - Highpoint
 - Chadstone
 - Doncaster
 - Southland
 - Fountain Gate
 
+Adelaide:
+
+- Rundle Place
+
 And these models:
 
 - iPhone Duo 256GB Star White
+- iPhone Duo 256GB Night Sky
 - iPhone Duo 512GB Star White
+- iPhone Duo 512GB Night Sky
+- iPhone Duo 1TB Star White
+- iPhone Duo 1TB Night Sky
+- iPhone Duo 2TB Star White
+- iPhone Duo 2TB Night Sky
 
 Each square also shows the last time that model was seen in stock at that store. Under the grid, Recent changes lists when something came into stock or sold out.
 
@@ -82,13 +94,13 @@ If a check says it could not save stock history:
 
 ## Notes for later
 
-The checker is `check.py`. It uses only Python’s standard library. It asks Apple’s public pickup page for postcode 3000 and keeps these stores: Highpoint `R504`, Chadstone `R180`, Doncaster `R342`, Southland `R343`, Fountain Gate `R530`.
+The checker is `check.py`. It uses only Python’s standard library. It asks Apple’s public pickup page for postcode 3000 (Melbourne) and postcode 5000 (Adelaide). Melbourne stores: Highpoint `R504`, Chadstone `R180`, Doncaster `R342`, Southland `R343`, Fountain Gate `R530`. Adelaide stores: Rundle Place `R405`. Apple’s store list and the postcode 5000 pickup reply both name Rundle Place as the only South Australia store.
 
-To watch another model, add its part number to `WATCHED_PARTS` at the top of `check.py`. The full list, which you can copy from, is just below that:
+To stop watching a model, remove its part number from `WATCHED_PARTS` at the top of `check.py`. All eight are watched:
 
-- `MK2D4X/A` 256GB Star White (watched)
+- `MK2D4X/A` 256GB Star White
 - `MK2E4X/A` 256GB Night Sky
-- `MK2F4X/A` 512GB Star White (watched)
+- `MK2F4X/A` 512GB Star White
 - `MK2G4X/A` 512GB Night Sky
 - `MK2H4X/A` 1TB Star White
 - `MK2J4X/A` 1TB Night Sky
