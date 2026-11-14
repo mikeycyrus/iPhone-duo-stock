@@ -1,14 +1,26 @@
 {
-  "checked_at": "2026-11-14T13:36:05+11:00",
-  "checked_at_display": "Sat 14 Nov 2026, 1:36 PM AEDT",
-  "last_success": "2026-11-14T13:36:05+11:00",
-  "last_success_display": "Sat 14 Nov 2026, 1:36 PM AEDT",
+  "checked_at": "2026-11-14T13:37:04+11:00",
+  "checked_at_display": "Sat 14 Nov 2026, 1:37 PM AEDT",
+  "last_success": "2026-11-14T13:37:04+11:00",
+  "last_success_display": "Sat 14 Nov 2026, 1:37 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
   "problem": null,
   "any_in_stock": true,
-  "in_stock_count": 4,
+  "in_stock_count": 6,
   "in_stock": [
+    {
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "city": "Melbourne",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    },
     {
       "part": "MK2D4X/A",
       "name": "iPhone Duo 256GB Star White",
@@ -30,6 +42,18 @@
       "store": "Fountain Gate",
       "city": "Melbourne",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
+      "text": "Available Today",
+      "stale": false
+    },
+    {
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "city": "Melbourne",
+      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
       "text": "Available Today",
       "stale": false
     },
@@ -105,11 +129,11 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
       "stores": {
         "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-13T19:35:31+11:00",
-          "last_seen_display": "13 Nov 7:35pm"
+          "last_seen": "2026-11-14T13:37:04+11:00",
+          "last_seen_display": "1:37pm"
         },
         "R180": {
           "status": "unavailable",
@@ -122,8 +146,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T13:36:05+11:00",
-          "last_seen_display": "1:36pm"
+          "last_seen": "2026-11-14T13:37:04+11:00",
+          "last_seen_display": "1:37pm"
         },
         "R343": {
           "status": "unavailable",
@@ -136,8 +160,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T13:36:05+11:00",
-          "last_seen_display": "1:36pm"
+          "last_seen": "2026-11-14T13:37:04+11:00",
+          "last_seen_display": "1:37pm"
         },
         "R405": {
           "status": "unavailable",
@@ -156,11 +180,11 @@
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
       "stores": {
         "R504": {
-          "status": "unavailable",
-          "text": "Currently unavailable",
+          "status": "available",
+          "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T04:25:37+11:00",
-          "last_seen_display": "4:25am"
+          "last_seen": "2026-11-14T13:37:04+11:00",
+          "last_seen_display": "1:37pm"
         },
         "R180": {
           "status": "unavailable",
@@ -173,8 +197,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T13:36:05+11:00",
-          "last_seen_display": "1:36pm"
+          "last_seen": "2026-11-14T13:37:04+11:00",
+          "last_seen_display": "1:37pm"
         },
         "R343": {
           "status": "unavailable",
@@ -187,8 +211,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T13:36:05+11:00",
-          "last_seen_display": "1:36pm"
+          "last_seen": "2026-11-14T13:37:04+11:00",
+          "last_seen_display": "1:37pm"
         },
         "R405": {
           "status": "unavailable",
@@ -201,6 +225,30 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-11-14T13:37:04+11:00",
+      "at_display": "Sat 14 Nov 2026, 1:37 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "city": "Melbourne",
+      "change": "in_stock"
+    },
+    {
+      "at": "2026-11-14T13:37:04+11:00",
+      "at_display": "Sat 14 Nov 2026, 1:37 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "city": "Melbourne",
+      "change": "in_stock"
+    },
     {
       "at": "2026-11-14T13:15:10+11:00",
       "at_display": "Sat 14 Nov 2026, 1:15 PM AEDT",
@@ -318,30 +366,6 @@
       "color": "Star White",
       "store_id": "R530",
       "store": "Fountain Gate",
-      "city": "Melbourne",
-      "change": "in_stock"
-    },
-    {
-      "at": "2026-11-14T12:27:14+11:00",
-      "at_display": "Sat 14 Nov 2026, 12:27 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R180",
-      "store": "Chadstone",
-      "city": "Melbourne",
-      "change": "out_of_stock"
-    },
-    {
-      "at": "2026-11-14T12:26:15+11:00",
-      "at_display": "Sat 14 Nov 2026, 12:26 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R180",
-      "store": "Chadstone",
       "city": "Melbourne",
       "change": "in_stock"
     }
