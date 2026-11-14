@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-14T12:53:08+11:00",
-  "checked_at_display": "Sat 14 Nov 2026, 12:53 PM AEDT",
-  "last_success": "2026-11-14T12:53:08+11:00",
-  "last_success_display": "Sat 14 Nov 2026, 12:53 PM AEDT",
+  "checked_at": "2026-11-14T12:54:08+11:00",
+  "checked_at_display": "Sat 14 Nov 2026, 12:54 PM AEDT",
+  "last_success": "2026-11-14T12:54:08+11:00",
+  "last_success_display": "Sat 14 Nov 2026, 12:54 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
   "problem": null,
@@ -115,8 +115,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T12:53:08+11:00",
-          "last_seen_display": "12:53pm"
+          "last_seen": "2026-11-14T12:54:08+11:00",
+          "last_seen_display": "12:54pm"
         },
         "R342": {
           "status": "unavailable",
@@ -136,8 +136,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T12:53:08+11:00",
-          "last_seen_display": "12:53pm"
+          "last_seen": "2026-11-14T12:54:08+11:00",
+          "last_seen_display": "12:54pm"
         },
         "R405": {
           "status": "unavailable",
@@ -180,15 +180,15 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T12:53:08+11:00",
-          "last_seen_display": "12:53pm"
+          "last_seen": "2026-11-14T12:54:08+11:00",
+          "last_seen_display": "12:54pm"
         },
         "R530": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T12:53:08+11:00",
-          "last_seen_display": "12:53pm"
+          "last_seen": "2026-11-14T12:54:08+11:00",
+          "last_seen_display": "12:54pm"
         },
         "R405": {
           "status": "unavailable",
