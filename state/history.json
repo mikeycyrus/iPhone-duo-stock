@@ -1,17 +1,6 @@
 {
   "events": [
     {
-      "at": "2026-11-05T17:25:40+11:00",
-      "at_display": "Thu 5 Nov 2026, 5:25 PM AEDT",
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R342",
-      "store": "Doncaster",
-      "change": "in_stock"
-    },
-    {
       "at": "2026-11-05T17:29:24+11:00",
       "at_display": "Thu 5 Nov 2026, 5:29 PM AEDT",
       "part": "MK2F4X/A",
@@ -5627,6 +5616,18 @@
       "store": "Highpoint",
       "city": "Melbourne",
       "change": "in_stock"
+    },
+    {
+      "at": "2026-11-14T23:27:52+11:00",
+      "at_display": "Sat 14 Nov 2026, 11:27 PM AEDT",
+      "part": "MK2D4X/A",
+      "name": "iPhone Duo 256GB Star White",
+      "capacity": "256GB",
+      "color": "Star White",
+      "store_id": "R504",
+      "store": "Highpoint",
+      "city": "Melbourne",
+      "change": "out_of_stock"
     }
   ]
 }
