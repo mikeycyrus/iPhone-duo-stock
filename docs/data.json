@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-14T12:46:37+11:00",
-  "checked_at_display": "Sat 14 Nov 2026, 12:46 PM AEDT",
-  "last_success": "2026-11-14T12:46:37+11:00",
-  "last_success_display": "Sat 14 Nov 2026, 12:46 PM AEDT",
+  "checked_at": "2026-11-14T12:47:37+11:00",
+  "checked_at_display": "Sat 14 Nov 2026, 12:47 PM AEDT",
+  "last_success": "2026-11-14T12:47:37+11:00",
+  "last_success_display": "Sat 14 Nov 2026, 12:47 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
   "problem": null,
@@ -127,8 +127,8 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T12:46:37+11:00",
-          "last_seen_display": "12:46pm"
+          "last_seen": "2026-11-14T12:47:37+11:00",
+          "last_seen_display": "12:47pm"
         },
         "R342": {
           "status": "unavailable",
@@ -141,15 +141,15 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T12:46:37+11:00",
-          "last_seen_display": "12:46pm"
+          "last_seen": "2026-11-14T12:47:37+11:00",
+          "last_seen_display": "12:47pm"
         },
         "R530": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T12:46:37+11:00",
-          "last_seen_display": "12:46pm"
+          "last_seen": "2026-11-14T12:47:37+11:00",
+          "last_seen_display": "12:47pm"
         },
         "R405": {
           "status": "unavailable",
@@ -192,15 +192,15 @@
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T12:46:37+11:00",
-          "last_seen_display": "12:46pm"
+          "last_seen": "2026-11-14T12:47:37+11:00",
+          "last_seen_display": "12:47pm"
         },
         "R530": {
           "status": "available",
           "text": "Available Today",
           "stale": false,
-          "last_seen": "2026-11-14T12:46:37+11:00",
-          "last_seen_display": "12:46pm"
+          "last_seen": "2026-11-14T12:47:37+11:00",
+          "last_seen_display": "12:47pm"
         },
         "R405": {
           "status": "unavailable",
