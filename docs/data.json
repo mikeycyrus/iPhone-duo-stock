@@ -1,11 +1,15 @@
 {
-  "checked_at": "2026-11-15T00:28:49+11:00",
-  "checked_at_display": "Sun 15 Nov 2026, 12:28 AM AEDT",
-  "last_success": "2026-11-15T00:28:49+11:00",
-  "last_success_display": "Sun 15 Nov 2026, 12:28 AM AEDT",
+  "checked_at": "2026-11-15T00:29:49+11:00",
+  "checked_at_display": "Sun 15 Nov 2026, 12:29 AM AEDT",
+  "last_success": "2026-11-15T00:29:49+11:00",
+  "last_success_display": "Sun 15 Nov 2026, 12:29 AM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
-  "problem": null,
+  "problem": {
+    "kind": "blocked",
+    "text": "Apple rejected this check (HTTP 541). That usually means the request was blocked, not that the phones are sold out.",
+    "stale": false
+  },
   "any_in_stock": false,
   "in_stock_count": 0,
   "in_stock": [],
