@@ -1,11 +1,15 @@
 {
-  "checked_at": "2026-11-15T03:35:17+11:00",
-  "checked_at_display": "Sun 15 Nov 2026, 3:35 AM AEDT",
+  "checked_at": "2026-11-15T03:36:16+11:00",
+  "checked_at_display": "Sun 15 Nov 2026, 3:36 AM AEDT",
   "last_success": "2026-11-15T03:35:17+11:00",
   "last_success_display": "Sun 15 Nov 2026, 3:35 AM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
-  "problem": null,
+  "problem": {
+    "kind": "blocked",
+    "text": "Apple rejected this check (HTTP 541). That usually means the request was blocked, not that the phones are sold out. The grid below is the last saved reading from Sun 15 Nov 2026, 3:35 AM AEDT.",
+    "stale": true
+  },
   "any_in_stock": false,
   "in_stock_count": 0,
   "in_stock": [],
@@ -57,43 +61,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T23:26:52+11:00",
           "last_seen_display": "14 Nov 11:26pm"
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T17:00:54+11:00",
           "last_seen_display": "14 Nov 5:00pm"
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-15T02:44:47+11:00",
           "last_seen_display": "2:44am"
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T16:54:53+11:00",
           "last_seen_display": "14 Nov 4:54pm"
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T17:07:10+11:00",
           "last_seen_display": "14 Nov 5:07pm"
         },
         "R405": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T13:14:10+11:00",
           "last_seen_display": "14 Nov 1:14pm"
         }
@@ -108,43 +112,43 @@
       "stores": {
         "R504": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T18:01:40+11:00",
           "last_seen_display": "14 Nov 6:01pm"
         },
         "R180": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T11:13:01+11:00",
           "last_seen_display": "14 Nov 11:13am"
         },
         "R342": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T14:12:36+11:00",
           "last_seen_display": "14 Nov 2:12pm"
         },
         "R343": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T13:09:59+11:00",
           "last_seen_display": "14 Nov 1:09pm"
         },
         "R530": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": "2026-11-14T14:38:17+11:00",
           "last_seen_display": "14 Nov 2:38pm"
         },
         "R405": {
           "status": "unavailable",
-          "text": "Currently unavailable",
-          "stale": false,
+          "text": "Last saved reading",
+          "stale": true,
           "last_seen": null,
           "last_seen_display": null
         }
