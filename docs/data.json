@@ -1,17 +1,13 @@
 {
-  "checked_at": "2026-11-14T14:41:25+11:00",
-  "checked_at_display": "Sat 14 Nov 2026, 2:41 PM AEDT",
-  "last_success": "2026-11-14T14:38:17+11:00",
-  "last_success_display": "Sat 14 Nov 2026, 2:38 PM AEDT",
+  "checked_at": "2026-11-14T14:44:14+11:00",
+  "checked_at_display": "Sat 14 Nov 2026, 2:44 PM AEDT",
+  "last_success": "2026-11-14T14:44:14+11:00",
+  "last_success_display": "Sat 14 Nov 2026, 2:44 PM AEDT",
   "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo",
   "location": "Melbourne pickup near postcode 3000 and Adelaide pickup near postcode 5000",
-  "problem": {
-    "kind": "blocked",
-    "text": "Apple rejected this check (HTTP 541). That usually means the request was blocked, not that the phones are sold out. The grid below is the last saved reading from Sat 14 Nov 2026, 2:38 PM AEDT.",
-    "stale": true
-  },
+  "problem": null,
   "any_in_stock": true,
-  "in_stock_count": 4,
+  "in_stock_count": 3,
   "in_stock": [
     {
       "part": "MK2D4X/A",
@@ -22,8 +18,8 @@
       "store": "Highpoint",
       "city": "Melbourne",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
-      "text": "Last saved reading",
-      "stale": true
+      "text": "Available Today",
+      "stale": false
     },
     {
       "part": "MK2D4X/A",
@@ -34,8 +30,8 @@
       "store": "Doncaster",
       "city": "Melbourne",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-256gb-star-white",
-      "text": "Last saved reading",
-      "stale": true
+      "text": "Available Today",
+      "stale": false
     },
     {
       "part": "MK2F4X/A",
@@ -46,20 +42,8 @@
       "store": "Highpoint",
       "city": "Melbourne",
       "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
-      "text": "Last saved reading",
-      "stale": true
-    },
-    {
-      "part": "MK2F4X/A",
-      "name": "iPhone Duo 512GB Star White",
-      "capacity": "512GB",
-      "color": "Star White",
-      "store_id": "R530",
-      "store": "Fountain Gate",
-      "city": "Melbourne",
-      "buy_url": "https://www.apple.com/au/shop/buy-iphone/iphone-duo/7.6-inch-display-512gb-star-white",
-      "text": "Last saved reading",
-      "stale": true
+      "text": "Available Today",
+      "stale": false
     }
   ],
   "stores": [
@@ -110,43 +94,43 @@
       "stores": {
         "R504": {
           "status": "available",
-          "text": "Last saved reading",
-          "stale": true,
-          "last_seen": "2026-11-14T14:38:17+11:00",
-          "last_seen_display": "2:38pm"
+          "text": "Available Today",
+          "stale": false,
+          "last_seen": "2026-11-14T14:44:14+11:00",
+          "last_seen_display": "2:44pm"
         },
         "R180": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-14T13:02:48+11:00",
           "last_seen_display": "1:02pm"
         },
         "R342": {
           "status": "available",
-          "text": "Last saved reading",
-          "stale": true,
-          "last_seen": "2026-11-14T14:38:17+11:00",
-          "last_seen_display": "2:38pm"
+          "text": "Available Today",
+          "stale": false,
+          "last_seen": "2026-11-14T14:44:14+11:00",
+          "last_seen_display": "2:44pm"
         },
         "R343": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-14T12:50:34+11:00",
           "last_seen_display": "12:50pm"
         },
         "R530": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-14T14:06:19+11:00",
           "last_seen_display": "2:06pm"
         },
         "R405": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-14T13:14:10+11:00",
           "last_seen_display": "1:14pm"
         }
@@ -161,43 +145,43 @@
       "stores": {
         "R504": {
           "status": "available",
-          "text": "Last saved reading",
-          "stale": true,
-          "last_seen": "2026-11-14T14:38:17+11:00",
-          "last_seen_display": "2:38pm"
+          "text": "Available Today",
+          "stale": false,
+          "last_seen": "2026-11-14T14:44:14+11:00",
+          "last_seen_display": "2:44pm"
         },
         "R180": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-14T11:13:01+11:00",
           "last_seen_display": "11:13am"
         },
         "R342": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-14T14:12:36+11:00",
           "last_seen_display": "2:12pm"
         },
         "R343": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-14T13:09:59+11:00",
           "last_seen_display": "1:09pm"
         },
         "R530": {
-          "status": "available",
-          "text": "Last saved reading",
-          "stale": true,
+          "status": "unavailable",
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": "2026-11-14T14:38:17+11:00",
           "last_seen_display": "2:38pm"
         },
         "R405": {
           "status": "unavailable",
-          "text": "Last saved reading",
-          "stale": true,
+          "text": "Currently unavailable",
+          "stale": false,
           "last_seen": null,
           "last_seen_display": null
         }
@@ -205,6 +189,18 @@
     }
   ],
   "recent_history": [
+    {
+      "at": "2026-11-14T14:44:14+11:00",
+      "at_display": "Sat 14 Nov 2026, 2:44 PM AEDT",
+      "part": "MK2F4X/A",
+      "name": "iPhone Duo 512GB Star White",
+      "capacity": "512GB",
+      "color": "Star White",
+      "store_id": "R530",
+      "store": "Fountain Gate",
+      "city": "Melbourne",
+      "change": "out_of_stock"
+    },
     {
       "at": "2026-11-14T14:13:36+11:00",
       "at_display": "Sat 14 Nov 2026, 2:13 PM AEDT",
@@ -336,18 +332,6 @@
       "store": "Southland",
       "city": "Melbourne",
       "change": "out_of_stock"
-    },
-    {
-      "at": "2026-11-14T12:41:33+11:00",
-      "at_display": "Sat 14 Nov 2026, 12:41 PM AEDT",
-      "part": "MK2D4X/A",
-      "name": "iPhone Duo 256GB Star White",
-      "capacity": "256GB",
-      "color": "Star White",
-      "store_id": "R180",
-      "store": "Chadstone",
-      "city": "Melbourne",
-      "change": "in_stock"
     }
   ],
   "alerts": "on",
